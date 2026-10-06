@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" data-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,14 +9,14 @@
     <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-color: #f4f6f9;
+            --bg-color: #f1f5f9;
             --surface-color: #ffffff;
-            --text-color: #2c3e50;
-            --text-secondary: #607274;
-            --title-color: #1a252f;
-            --border-color: #dcdfe6;
+            --text-color: #1e293b;
+            --text-secondary: #64748b;
+            --title-color: #0f172a;
+            --border-color: #cbd5e1;
             --panel-bg: #ffffff;
-            --section-header-bg: #edf2f7;
+            --section-header-bg: #f8fafc;
             --accent-color: #0284c7;
             --accent-hover: #0369a1;
             --accent-light: #e0f2fe;
@@ -34,22 +34,22 @@
             --badge-text: #334155;
             --code-bg: #f8fafc;
             --input-bg: #ffffff;
-            --shadow: 0 4px 6px -1px rgba(0,0,0,0.07), 0 2px 4px -2px rgba(0,0,0,0.05);
-            --shadow-md: 0 10px 15px -3px rgba(0,0,0,0.08), 0 4px 6px -4px rgba(0,0,0,0.04);
+            --shadow: 0 4px 6px -1px rgba(0,0,0,0.06), 0 2px 4px -2px rgba(0,0,0,0.04);
+            --shadow-md: 0 10px 15px -3px rgba(0,0,0,0.08);
         }
 
         [data-theme="dark"] {
-            --bg-color: #0f172a;
-            --surface-color: #1e293b;
-            --text-color: #f1f5f9;
-            --text-secondary: #94a3b8;
+            --bg-color: #090d16;
+            --surface-color: #111827;
+            --text-color: #f3f4f6;
+            --text-secondary: #9ca3af;
             --title-color: #38bdf8;
-            --border-color: #334155;
-            --panel-bg: #1e293b;
-            --section-header-bg: #1e293b;
+            --border-color: #374151;
+            --panel-bg: #111827;
+            --section-header-bg: #1f2937;
             --accent-color: #38bdf8;
             --accent-hover: #0ea5e9;
-            --accent-light: #082f49;
+            --accent-light: #0c4a6e;
             --accent-border: #0284c7;
             --danger-bg: #450a0a;
             --danger-text: #fca5a5;
@@ -60,12 +60,12 @@
             --success-bg: #052e16;
             --success-text: #86efac;
             --success-border: #15803d;
-            --badge-bg: #334155;
-            --badge-text: #cbd5e1;
-            --code-bg: #0b1120;
-            --input-bg: #0f172a;
+            --badge-bg: #374151;
+            --badge-text: #d1d5db;
+            --code-bg: #030712;
+            --input-bg: #1f2937;
             --shadow: 0 4px 6px -1px rgba(0,0,0,0.4);
-            --shadow-md: 0 10px 15px -3px rgba(0,0,0,0.5);
+            --shadow-md: 0 10px 15px -3px rgba(0,0,0,0.6);
         }
 
         * {
@@ -78,7 +78,7 @@
         body {
             background-color: var(--bg-color);
             color: var(--text-color);
-            transition: background-color 0.25s ease, color 0.25s ease;
+            transition: background-color 0.2s ease, color 0.2s ease;
             min-height: 100vh;
         }
 
@@ -104,9 +104,9 @@
         .header-badge {
             background-color: var(--accent-color);
             color: #ffffff;
-            font-size: 0.72rem;
+            font-size: 0.74rem;
             font-weight: 700;
-            padding: 4px 8px;
+            padding: 5px 9px;
             border-radius: 4px;
             letter-spacing: 0.5px;
             text-transform: uppercase;
@@ -119,14 +119,14 @@
         }
 
         .header-subtitle {
-            font-size: 0.78rem;
+            font-size: 0.8rem;
             color: var(--text-secondary);
             margin-top: 2px;
         }
 
         .header-controls {
             display: flex;
-            gap: 12px;
+            gap: 10px;
             align-items: center;
         }
 
@@ -138,7 +138,7 @@
             color: var(--text-color);
             font-size: 0.88rem;
             cursor: pointer;
-            transition: all 0.2s ease;
+            transition: all 0.15s ease;
         }
 
         button:hover {
@@ -160,20 +160,20 @@
 
         .layout-container {
             display: grid;
-            grid-template-columns: 1.85fr 1.15fr;
+            grid-template-columns: 1.8fr 1.2fr;
             min-height: calc(100vh - 65px);
             max-width: 1920px;
             margin: 0 auto;
         }
 
-        @media (max-width: 1200px) {
+        @media (max-width: 1100px) {
             .layout-container {
                 grid-template-columns: 1fr;
             }
         }
 
         .form-column {
-            padding: 24px 32px 60px;
+            padding: 24px 30px 60px;
             overflow-y: auto;
             max-height: calc(100vh - 65px);
             border-right: 1px solid var(--border-color);
@@ -184,7 +184,7 @@
             background-color: var(--surface-color);
             display: flex;
             flex-direction: column;
-            gap: 16px;
+            gap: 14px;
             max-height: calc(100vh - 65px);
             position: sticky;
             top: 65px;
@@ -194,7 +194,7 @@
             background-color: var(--panel-bg);
             border: 1px solid var(--border-color);
             border-radius: 8px;
-            margin-bottom: 20px;
+            margin-bottom: 18px;
             box-shadow: var(--shadow);
             overflow: hidden;
             transition: border-color 0.2s ease;
@@ -214,7 +214,7 @@
         }
 
         .section-header h2 {
-            font-size: 0.98rem;
+            font-size: 0.96rem;
             font-weight: 700;
             color: var(--title-color);
             display: flex;
@@ -226,7 +226,7 @@
             padding: 16px 20px;
             display: flex;
             flex-direction: column;
-            gap: 14px;
+            gap: 13px;
         }
 
         .field-row {
@@ -247,7 +247,7 @@
         .radio-group, .checkbox-group {
             display: flex;
             flex-wrap: wrap;
-            gap: 10px;
+            gap: 8px;
         }
 
         .radio-card {
@@ -258,6 +258,7 @@
             border: 1px solid var(--border-color);
             border-radius: 6px;
             background-color: var(--input-bg);
+            color: var(--text-color);
             font-size: 0.85rem;
             cursor: pointer;
             user-select: none;
@@ -273,10 +274,15 @@
             border-color: var(--accent-color);
         }
 
-        .radio-card.active {
+        .radio-card:has(input:checked) {
             border-color: var(--accent-color);
             background-color: var(--accent-light);
             font-weight: 500;
+        }
+
+        [data-theme="dark"] .radio-card:has(input:checked) {
+            background-color: var(--accent-light);
+            color: #ffffff;
         }
 
         .input-inline {
@@ -286,7 +292,7 @@
             flex-wrap: wrap;
         }
 
-        input[type="text"], input[type="number"], select.form-select {
+        input[type="text"], input[type="number"], select.form-select, textarea {
             padding: 6px 10px;
             border-radius: 6px;
             border: 1px solid var(--border-color);
@@ -317,7 +323,7 @@
         .notice-box {
             padding: 8px 12px;
             border-radius: 6px;
-            font-size: 0.8rem;
+            font-size: 0.82rem;
             line-height: 1.4;
             display: flex;
             align-items: flex-start;
@@ -345,13 +351,13 @@
 
         .anali-score-card {
             background-color: var(--panel-bg);
-            border: 2px solid var(--accent-color);
+            border: 1.5px solid var(--accent-color);
             border-radius: 8px;
-            padding: 14px 18px;
+            padding: 12px 18px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-top: 10px;
+            margin-top: 8px;
         }
 
         .anali-score-val {
@@ -386,7 +392,6 @@
             border: 1px solid var(--danger-border);
         }
 
-        /* Report View */
         .report-header-row {
             display: flex;
             justify-content: space-between;
@@ -407,11 +412,11 @@
         #report-output {
             flex: 1;
             width: 100%;
-            height: calc(100vh - 220px);
+            height: calc(100vh - 200px);
             padding: 16px;
             font-family: 'Consolas', 'Courier New', monospace;
             font-size: 0.88rem;
-            line-height: 1.5;
+            line-height: 1.55;
             background-color: var(--code-bg);
             color: var(--text-color);
             border: 1px solid var(--border-color);
@@ -421,7 +426,6 @@
             overflow-y: auto;
         }
 
-        /* Toast */
         #toast {
             visibility: hidden;
             min-width: 250px;
@@ -516,19 +520,19 @@
                     <div class="input-inline">
                         <label class="field-label" id="lbl-fasting">Ayuno previo &ge; 4 horas:</label>
                         <div class="radio-group">
-                            <label class="radio-card"><input type="radio" name="fasting" value="yes" checked onchange="updateReport()"> <span id="opt-yes-fasting">Sí</span></label>
-                            <label class="radio-card"><input type="radio" name="fasting" value="no" onchange="updateReport()"> <span id="opt-no-fasting">No</span></label>
+                            <label class="radio-card"><input type="radio" name="fasting" value="yes" checked onchange="updateReport()"> <span id="opt-fasting-yes">Sí</span></label>
+                            <label class="radio-card"><input type="radio" name="fasting" value="no" onchange="updateReport()"> <span id="opt-fasting-no">No</span></label>
                         </div>
                     </div>
                     <div class="field-row">
                         <label class="field-label" id="lbl-sequences">Secuencias Adquiridas:</label>
                         <div class="checkbox-group">
-                            <label class="radio-card"><input type="checkbox" id="seq-t2" checked onchange="updateReport()"> T2WI Coronal/Axial (non-FS)</label>
-                            <label class="radio-card"><input type="checkbox" id="seq-t1" checked onchange="updateReport()"> T1WI En/Fuera fase / DIXON</label>
-                            <label class="radio-card"><input type="checkbox" id="seq-mrcp" checked onchange="updateReport()"> Colangio-RM 2D/3D (MRCP)</label>
-                            <label class="radio-card"><input type="checkbox" id="seq-dwi" checked onchange="updateReport()"> Difusión (DWI bajo y alto b)</label>
-                            <label class="radio-card"><input type="checkbox" id="seq-dyn" checked onchange="updateReport()"> T1 Dinámico con Contraste IV</label>
-                            <label class="radio-card"><input type="checkbox" id="seq-hba" onchange="onHbaSeqChange()"> Fase Hepatobiliar (HBA)</label>
+                            <label class="radio-card"><input type="checkbox" id="seq-t2" checked onchange="updateReport()"> <span id="lbl-seq-t2">T2WI no-FS (axial/coronal)</span></label>
+                            <label class="radio-card"><input type="checkbox" id="seq-t1" checked onchange="updateReport()"> <span id="lbl-seq-t1">T1WI En/Fuera fase o DIXON</span></label>
+                            <label class="radio-card"><input type="checkbox" id="seq-mrcp" checked onchange="updateReport()"> <span id="lbl-seq-mrcp">Colangio-RM 2D/3D (MRCP)</span></label>
+                            <label class="radio-card"><input type="checkbox" id="seq-dwi" checked onchange="updateReport()"> <span id="lbl-seq-dwi">Difusión (DWI bajo y alto b)</span></label>
+                            <label class="radio-card"><input type="checkbox" id="seq-dyn" checked onchange="updateReport()"> <span id="lbl-seq-dyn">T1 Dinámico con Contraste IV</span></label>
+                            <label class="radio-card"><input type="checkbox" id="seq-hba" onchange="onHbaSeqChange()"> <span id="lbl-seq-hba">Fase Hepatobiliar HBA (gadoxético)</span></label>
                         </div>
                     </div>
                 </div>
@@ -552,7 +556,7 @@
                     <!-- Condicional si estenosis presentes -->
                     <div id="box-strictures" class="conditional-box">
                         <div class="input-inline">
-                            <label class="field-label" id="lbl-strict-number">Número:</label>
+                            <label class="field-label" id="lbl-strict-num">Número de Estenosis:</label>
                             <div class="radio-group">
                                 <label class="radio-card"><input type="radio" name="strict-num" value="single" checked onchange="updateReport()"> <span id="opt-num-single">Única</span></label>
                                 <label class="radio-card"><input type="radio" name="strict-num" value="multiple" onchange="updateReport()"> <span id="opt-num-multiple">Múltiples</span></label>
@@ -605,7 +609,7 @@
                             <label class="field-label" id="lbl-dil-site">Distribución de dilatación:</label>
                             <div class="radio-group">
                                 <label class="radio-card"><input type="radio" name="dil-site" value="intra" checked onchange="updateReport()"> <span id="opt-dilsite-intra">Intrahepática focal / segmentaria</span></label>
-                                <label class="radio-card"><input type="radio" name="dil-site" value="diffuse" onchange="updateReport()"> <span id="opt-dilsite-diffuse">Difusa</span></label>
+                                <label class="radio-card"><input type="radio" name="dil-site" value="diffuse" onchange="updateReport()"> <span id="opt-dilsite-diffuse">Difusa intrahepática</span></label>
                                 <label class="radio-card"><input type="radio" name="dil-site" value="main" onchange="updateReport()"> <span id="opt-dilsite-main">Vía biliar principal</span></label>
                             </div>
                         </div>
@@ -691,7 +695,7 @@
                         <label class="field-label" id="lbl-morphology">Morfología Hepática:</label>
                         <div class="radio-group">
                             <label class="radio-card"><input type="radio" name="morphology" value="normal" checked onchange="updateReport()"> <span id="opt-morph-normal">Normal</span></label>
-                            <label class="radio-card"><input type="radio" name="morphology" value="abnormal" onchange="updateReport()"> <span id="opt-morph-abnormal">Alterada / Dismórfica (Atrofia/Hipertrofia caudado)</span></label>
+                            <label class="radio-card"><input type="radio" name="morphology" value="abnormal" onchange="updateReport()"> <span id="opt-morph-abnormal">Alterada / Dismórfica</span></label>
                         </div>
                     </div>
 
@@ -706,32 +710,32 @@
                     <div class="input-inline">
                         <label class="field-label" id="lbl-steatosis">Esteatosis:</label>
                         <div class="radio-group">
-                            <label class="radio-card"><input type="radio" name="steatosis" value="no" checked onchange="updateReport()"> No</label>
-                            <label class="radio-card"><input type="radio" name="steatosis" value="yes" onchange="updateReport()"> Sí</label>
+                            <label class="radio-card"><input type="radio" name="steatosis" value="no" checked onchange="updateReport()"> <span id="opt-steat-no">No</span></label>
+                            <label class="radio-card"><input type="radio" name="steatosis" value="yes" onchange="updateReport()"> <span id="opt-steat-yes">Sí</span></label>
                         </div>
                     </div>
 
                     <div class="input-inline">
                         <label class="field-label" id="lbl-fibrosis">Fibrosis Confluente:</label>
                         <div class="radio-group">
-                            <label class="radio-card"><input type="radio" name="fibrosis" value="no" checked onchange="updateReport()"> No</label>
-                            <label class="radio-card"><input type="radio" name="fibrosis" value="yes" onchange="updateReport()"> Sí (T2 intermedio / hipointenso tardío)</label>
+                            <label class="radio-card"><input type="radio" name="fibrosis" value="no" checked onchange="updateReport()"> <span id="opt-fib-no">No</span></label>
+                            <label class="radio-card"><input type="radio" name="fibrosis" value="yes" onchange="updateReport()"> <span id="opt-fib-yes">Sí</span></label>
                         </div>
                     </div>
 
                     <div class="input-inline">
                         <label class="field-label" id="lbl-edema">Edema Agudo / Inflamación Periductal:</label>
                         <div class="radio-group">
-                            <label class="radio-card"><input type="radio" name="edema" value="no" checked onchange="updateReport()"> No</label>
-                            <label class="radio-card"><input type="radio" name="edema" value="yes" onchange="updateReport()"> Sí</label>
+                            <label class="radio-card"><input type="radio" name="edema" value="no" checked onchange="updateReport()"> <span id="opt-edema-no">No</span></label>
+                            <label class="radio-card"><input type="radio" name="edema" value="yes" onchange="updateReport()"> <span id="opt-edema-yes">Sí</span></label>
                         </div>
                     </div>
 
                     <div class="input-inline">
                         <label class="field-label" id="lbl-reg-nodules">Nódulos Regenerativos (&gt; 3 mm):</label>
                         <div class="radio-group">
-                            <label class="radio-card"><input type="radio" name="reg-nodules" value="no" checked onchange="updateReport()"> No</label>
-                            <label class="radio-card"><input type="radio" name="reg-nodules" value="yes" onchange="updateReport()"> Sí (Macronodulares)</label>
+                            <label class="radio-card"><input type="radio" name="reg-nodules" value="no" checked onchange="updateReport()"> <span id="opt-nod-no">No</span></label>
+                            <label class="radio-card"><input type="radio" name="reg-nodules" value="yes" onchange="updateReport()"> <span id="opt-nod-yes">Sí (Macronodulares)</span></label>
                         </div>
                     </div>
 
@@ -739,24 +743,24 @@
                     <div id="box-contrast-phases" class="conditional-box visible">
                         <div class="field-label" id="lbl-contrast-pat">Patrón de Realce tras Contraste IV:</div>
                         <div class="input-inline">
-                            <span style="font-size:0.84rem; width:140px;">Fase Arterial:</span>
+                            <span style="font-size:0.84rem; width:140px;" id="lbl-art-phase">Fase Arterial:</span>
                             <div class="radio-group">
-                                <label class="radio-card"><input type="radio" name="art-phase" value="homogeneous" checked onchange="updateReport()"> Homogéneo</label>
-                                <label class="radio-card"><input type="radio" name="art-phase" value="inhomogeneous" onchange="updateReport()"> Heterogéneo</label>
+                                <label class="radio-card"><input type="radio" name="art-phase" value="homogeneous" checked onchange="updateReport()"> <span id="opt-art-homo">Homogéneo</span></label>
+                                <label class="radio-card"><input type="radio" name="art-phase" value="inhomogeneous" onchange="updateReport()"> <span id="opt-art-hetero">Heterogéneo</span></label>
                             </div>
                         </div>
                         <div class="input-inline">
-                            <span style="font-size:0.84rem; width:140px;">Fase Portal-Venosa:</span>
+                            <span style="font-size:0.84rem; width:140px;" id="lbl-pv-phase">Fase Portal-Venosa:</span>
                             <div class="radio-group">
-                                <label class="radio-card"><input type="radio" name="pv-phase" value="homogeneous" checked onchange="updateReport()"> Homogéneo</label>
-                                <label class="radio-card"><input type="radio" name="pv-phase" value="inhomogeneous" onchange="updateReport()"> Heterogéneo</label>
+                                <label class="radio-card"><input type="radio" name="pv-phase" value="homogeneous" checked onchange="updateReport()"> <span id="opt-pv-homo">Homogéneo</span></label>
+                                <label class="radio-card"><input type="radio" name="pv-phase" value="inhomogeneous" onchange="updateReport()"> <span id="opt-pv-hetero">Heterogéneo</span></label>
                             </div>
                         </div>
                         <div id="row-hba-excretion" class="input-inline" style="display:none;">
-                            <span style="font-size:0.84rem; width:140px;">Excreción HBA:</span>
+                            <span style="font-size:0.84rem; width:140px;" id="lbl-hba-excretion">Excreción HBA:</span>
                             <div class="radio-group">
-                                <label class="radio-card"><input type="radio" name="hba-phase" value="homogeneous" checked onchange="updateReport()"> Homogénea</label>
-                                <label class="radio-card"><input type="radio" name="hba-phase" value="inhomogeneous" onchange="updateReport()"> Heterogénea</label>
+                                <label class="radio-card"><input type="radio" name="hba-phase" value="homogeneous" checked onchange="updateReport()"> <span id="opt-hba-homo">Homogénea</span></label>
+                                <label class="radio-card"><input type="radio" name="hba-phase" value="inhomogeneous" onchange="updateReport()"> <span id="opt-hba-hetero">Heterogénea</span></label>
                             </div>
                         </div>
                     </div>
@@ -765,16 +769,16 @@
                     <div class="field-row">
                         <label class="field-label" id="lbl-focal-lesion">Lesión Focal Hepática:</label>
                         <div class="radio-group">
-                            <label class="radio-card"><input type="radio" name="focal-lesion" value="no" checked onchange="onFocalLesionChange()"> No</label>
-                            <label class="radio-card"><input type="radio" name="focal-lesion" value="yes" onchange="onFocalLesionChange()"> Sí</label>
+                            <label class="radio-card"><input type="radio" name="focal-lesion" value="no" checked onchange="onFocalLesionChange()"> <span id="opt-focal-no">No</span></label>
+                            <label class="radio-card"><input type="radio" name="focal-lesion" value="yes" onchange="onFocalLesionChange()"> <span id="opt-focal-yes">Sí</span></label>
                         </div>
                     </div>
                     <div id="box-focal-lesion" class="conditional-box">
                         <div class="input-inline">
                             <label class="field-label" id="lbl-focal-type">Naturaleza sospechada:</label>
                             <div class="radio-group">
-                                <label class="radio-card"><input type="radio" name="focal-nature" value="benign" checked onchange="updateReport()"> Benigna (quiste, hemangioma)</label>
-                                <label class="radio-card"><input type="radio" name="focal-nature" value="malignant" onchange="updateReport()"> Sospecha de Malignidad (Colangiocarcinoma / CHC)</label>
+                                <label class="radio-card"><input type="radio" name="focal-nature" value="benign" checked onchange="updateReport()"> <span id="opt-fnature-benign">Benigna (quiste, hemangioma)</span></label>
+                                <label class="radio-card"><input type="radio" name="focal-nature" value="malignant" onchange="updateReport()"> <span id="opt-fnature-malig">Sospecha de Malignidad (Colangiocarcinoma / CHC)</span></label>
                             </div>
                         </div>
                         <div class="input-inline">
@@ -787,9 +791,9 @@
                     <div class="field-row">
                         <label class="field-label" id="lbl-decomp">Signos de Hipertensión Portal / Descompensación:</label>
                         <div class="checkbox-group">
-                            <label class="radio-card"><input type="checkbox" id="htp-collaterals" onchange="updateReport()"> Colaterales venosas porto-sistémicas</label>
-                            <label class="radio-card"><input type="checkbox" id="htp-splenomegaly" onchange="updateReport()"> Esplenomegalia</label>
-                            <label class="radio-card"><input type="checkbox" id="htp-ascites" onchange="updateReport()"> Ascitis</label>
+                            <label class="radio-card"><input type="checkbox" id="htp-collaterals" onchange="updateReport()"> <span id="lbl-htp-col">Colaterales venosas porto-sistémicas</span></label>
+                            <label class="radio-card"><input type="checkbox" id="htp-splenomegaly" onchange="updateReport()"> <span id="lbl-htp-spl">Esplenomegalia</span></label>
+                            <label class="radio-card"><input type="checkbox" id="htp-ascites" onchange="updateReport()"> <span id="lbl-htp-asc">Ascitis</span></label>
                         </div>
                     </div>
 
@@ -797,8 +801,8 @@
                     <div class="input-inline">
                         <label class="field-label" id="lbl-nodes">Adenopatías perihepáticas aumentadas (&gt; 10 mm):</label>
                         <div class="radio-group">
-                            <label class="radio-card"><input type="radio" name="nodes" value="no" checked onchange="updateReport()"> No</label>
-                            <label class="radio-card"><input type="radio" name="nodes" value="yes" onchange="updateReport()"> Sí</label>
+                            <label class="radio-card"><input type="radio" name="nodes" value="no" checked onchange="updateReport()"> <span id="opt-nodes-no">No</span></label>
+                            <label class="radio-card"><input type="radio" name="nodes" value="yes" onchange="updateReport()"> <span id="opt-nodes-yes">Sí</span></label>
                         </div>
                     </div>
                 </div>
@@ -837,8 +841,8 @@
                     <div class="field-row">
                         <label class="field-label" id="lbl-mpd">Dilatación del conducto pancreático principal (Wirsung):</label>
                         <div class="radio-group">
-                            <label class="radio-card"><input type="radio" name="mpd" value="no" checked onchange="onMpdChange()"> No</label>
-                            <label class="radio-card"><input type="radio" name="mpd" value="yes" onchange="onMpdChange()"> Sí</label>
+                            <label class="radio-card"><input type="radio" name="mpd" value="no" checked onchange="onMpdChange()"> <span id="opt-mpd-no">No</span></label>
+                            <label class="radio-card"><input type="radio" name="mpd" value="yes" onchange="onMpdChange()"> <span id="opt-mpd-yes">Sí</span></label>
                         </div>
                     </div>
                     <div id="box-mpd" class="conditional-box">
@@ -912,98 +916,538 @@
     <div id="toast">Informe copiado al portapapeles</div>
 
     <script>
+// Full Trilingual Translation Dictionary
         const translations = {
-            es: {
-                mainTitle: "RM en Colangitis Esclerosante Primaria",
-                subtitle: "Módulo de Informe Estructurado • Guías de Consenso Europeo (Ippolito et al., 2025)",
-                themeDark: "🌙 Modo Oscuro",
-                themeLight: "☀️ Modo Claro",
-                resetBtn: "↺ Reiniciar",
-                btnCopy: "📋 Copiar Informe",
-                btnDownload: "💾 Guardar",
-                toastCopied: "Informe copiado al portapapeles",
-                repTitle: "INFORME DE RESONANCIA MAGNÉTICA: COLANGITIS ESCLEROSANTE PRIMARIA (ESGAR 2025)",
-                secTechnique: "TÉCNICA Y PROTOCOLO:",
-                secBiliary: "1. VÍA BILIAR:",
-                secGb: "2. VESÍCULA BILIAR Y LITIASIS:",
-                secLiver: "3. PARÉNQUIMA HEPÁTICO:",
-                secSpleen: "4. BAZO:",
-                secPancreas: "5. PÁNCREAS:",
-                secScores: "6. ESTRATIFICACIÓN PRONÓSTICA (SCORE ANALI):",
-                secConclusion: "CONCLUSIÓN / IMPRESIÓN:",
-                secNotes: "OBSERVACIONES / COMENTARIOS:"
-            },
-            ca: {
-                mainTitle: "RM en Colangitis Esclerosant Primària",
-                subtitle: "Mòdul d'Informe Estructurat • Guies de Consens Europeu (Ippolito et al., 2025)",
-                themeDark: "🌙 Mode Fosc",
-                themeLight: "☀️ Mode Clar",
-                resetBtn: "↺ Reiniciar",
-                btnCopy: "📋 Copiar Informe",
-                btnDownload: "💾 Guardar",
-                toastCopied: "Informe copiat al porta-retalls",
-                repTitle: "INFORME DE RESONÀNCIA MAGNÈTICA: COLANGITIS ESCLEROSANT PRIMÀRIA (ESGAR 2025)",
-                secTechnique: "TÈCNICA I PROTOCOL:",
-                secBiliary: "1. VIA BILIAR:",
-                secGb: "2. VESÍCULA BILIAR I LITIASI:",
-                secLiver: "3. PARÈNQUIMA HEPÀTIC:",
-                secSpleen: "4. BAF:",
-                secPancreas: "5. PÀNCREES:",
-                secScores: "6. ESTRATIFICACIÓ PRONÒSTICA (SCORE ANALI):",
-                secConclusion: "CONCLUSIÓ / IMPRESSIÓ:",
-                secNotes: "OBSERVACIONS / COMENTARIS:"
-            },
-            en: {
-                mainTitle: "MR Imaging in Primary Sclerosing Cholangitis",
-                subtitle: "Structured Reporting Module • European Consensus Statement (Ippolito et al., 2025)",
-                themeDark: "🌙 Dark Mode",
-                themeLight: "☀️ Light Mode",
-                resetBtn: "↺ Reset",
-                btnCopy: "📋 Copy Report",
-                btnDownload: "💾 Save",
-                toastCopied: "Report copied to clipboard",
-                repTitle: "MRI REPORT: PRIMARY SCLEROSING CHOLANGITIS (ESGAR 2025)",
-                secTechnique: "TECHNIQUE & PROTOCOL:",
-                secBiliary: "1. BILIARY FINDINGS:",
-                secGb: "2. GALLBLADDER & LITHIASIS:",
-                secLiver: "3. LIVER PARENCHYMA:",
-                secSpleen: "4. SPLEEN:",
-                secPancreas: "5. PANCREAS:",
-                secScores: "6. PROGNOSTIC STRATIFICATION (ANALI SCORE):",
-                secConclusion: "CONCLUSION / IMPRESSION:",
-                secNotes: "ADDITIONAL NOTES:"
-            }
-        };
+        "es": {
+                "ui-main-title": "RM en Colangitis Esclerosante Primaria",
+                "ui-subtitle": "Módulo de Informe Estructurado • Guías de Consenso Europeo (Ippolito et al., 2025)",
+                "theme-btn-dark": "🌙 Modo Oscuro",
+                "theme-btn-light": "☀️ Modo Claro",
+                "reset-btn": "↺ Reiniciar",
+                "btn-copy": "📋 Copiar Informe",
+                "btn-download": "💾 Guardar",
+                "toast": "Informe copiado al portapapeles",
+                "ui-rep-preview-title": "Previsualización de Informe Estructurado",
+                "sec-general": "👤 Datos del Estudio e Indicación",
+                "sec-protocol": "⚙️ Protocolo de Adquisición (Consenso ESGAR)",
+                "sec-biliary": "🌱 1. Vía Biliar (Biliary Findings)",
+                "sec-gb": "💧 2. Vesícula Biliar y Litiasis",
+                "sec-liver": "🫀 3. Parénquima Hepático (Liver Findings)",
+                "sec-spleen": "🍆 4. Bazo (Spleen)",
+                "sec-pancreas": "🔬 5. Páncreas",
+                "sec-anali": "📊 6. Score Pronóstico ANALI Integrado",
+                "sec-notes": "✎ 7. Observaciones Adicionales",
+                "lbl-exam-type": "Tipo de Exploración:",
+                "opt-exam-baseline": "Estudio inicial / Sospecha diagnóstica",
+                "opt-exam-surv": "Seguimiento anual / Cribado de complicaciones",
+                "opt-exam-stent": "Control post-intervencionismo / Stent",
+                "opt-exam-acute": "Sospecha de colangitis bacteriana / Complicación aguda",
+                "lbl-prior-interventions": "Intervenciones Previas:",
+                "opt-prior-none": "Ninguna / No constan",
+                "opt-prior-stent": "Stent biliar endoscópico previo",
+                "opt-prior-ercp": "CPRE / Dilatación con balón previa",
+                "opt-prior-chole": "Colecistectomía previa",
+                "opt-prior-surg": "Cirugía biliar / Derivación biliodigestiva",
+                "lbl-field": "Campo Magnético:",
+                "lbl-fasting": "Ayuno previo ≥ 4 horas:",
+                "opt-fasting-yes": "Sí",
+                "opt-fasting-no": "No",
+                "lbl-sequences": "Secuencias Adquiridas:",
+                "lbl-seq-t2": "T2WI no-FS (axial/coronal)",
+                "lbl-seq-t1": "T1WI En/Fuera fase o DIXON",
+                "lbl-seq-mrcp": "Colangio-RM 2D/3D (MRCP)",
+                "lbl-seq-dwi": "Difusión (DWI bajo y alto b)",
+                "lbl-seq-dyn": "T1 Dinámico con Contraste IV",
+                "lbl-seq-hba": "Fase Hepatobiliar HBA (gadoxético)",
+                "lbl-strictures": "Estenosis Biliares:",
+                "opt-strict-absent": "Ausentes",
+                "opt-strict-present": "Presentes",
+                "lbl-strict-num": "Número de Estenosis:",
+                "opt-num-single": "Única",
+                "opt-num-multi": "Múltiples",
+                "lbl-strict-loc": "Localización:",
+                "opt-loc-intra": "Intrahepática",
+                "opt-loc-extra": "Extrahepática",
+                "opt-loc-both": "Ambas",
+                "lbl-strict-grade": "Severidad / Grado:",
+                "opt-grade-low": "Bajo grado (< 75%)",
+                "opt-grade-high": "Alto grado (≥ 75%)",
+                "lbl-strict-longest": "Longitud de la estenosis más larga:",
+                "lbl-strict-severe": "Longitud de la estenosis más severa:",
+                "lbl-dilations": "Dilatación de la Vía Biliar:",
+                "opt-dil-absent": "Ausente",
+                "opt-dil-present": "Presente",
+                "lbl-dil-max": "Calibre máximo:",
+                "lbl-dil-site": "Distribución de dilatación:",
+                "opt-dilsite-intra": "Intrahepática focal / segmentaria",
+                "opt-dilsite-diffuse": "Difusa intrahepática",
+                "opt-dilsite-main": "Vía biliar principal",
+                "lbl-thickening": "Engrosamiento Parietal de Vía Biliar (> 2 mm):",
+                "opt-thick-no": "No (≤ 2 mm)",
+                "opt-thick-yes": "Sí (> 2 mm) [Patológico]",
+                "lbl-gb-presence": "Vesícula Biliar:",
+                "opt-gb-pres": "Presente",
+                "opt-gb-abs": "Ausente (Colecistectomía)",
+                "lbl-gb-wall": "Alteraciones parietales vesiculares:",
+                "opt-gbwall-no": "No",
+                "opt-gbwall-yes": "Sí",
+                "lbl-gb-lith": "Colelitiasis:",
+                "opt-gblith-no": "No",
+                "opt-gblith-yes": "Sí",
+                "lbl-cystic-irreg": "Irregularidades en el conducto cístico:",
+                "opt-cystic-no": "No",
+                "opt-cystic-yes": "Sí",
+                "lbl-tree-lith": "Litiasis en el árbol biliar (Coledocolitiasis / Hepatolitiasis):",
+                "opt-treelith-no": "No",
+                "opt-treelith-yes": "Sí",
+                "lbl-treelith-loc": "Localización de litiasis:",
+                "opt-tlloc-intra": "Intrahepática",
+                "opt-tlloc-extra": "Extrahepática",
+                "opt-tlloc-both": "Ambas",
+                "lbl-morphology": "Morfología Hepática:",
+                "opt-morph-normal": "Normal",
+                "opt-morph-abnormal": "Alterada / Dismórfica",
+                "lbl-margins": "Contornos Hepáticos:",
+                "opt-marg-smooth": "Lisos",
+                "opt-marg-irregular": "Irregulares / Lobulados",
+                "lbl-steatosis": "Esteatosis:",
+                "opt-steat-no": "No",
+                "opt-steat-yes": "Sí",
+                "lbl-fibrosis": "Fibrosis Confluente:",
+                "opt-fib-no": "No",
+                "opt-fib-yes": "Sí",
+                "lbl-edema": "Edema Agudo / Inflamación Periductal:",
+                "opt-edema-no": "No",
+                "opt-edema-yes": "Sí",
+                "lbl-reg-nodules": "Nódulos Regenerativos (> 3 mm):",
+                "opt-nod-no": "No",
+                "opt-nod-yes": "Sí (Macronodulares)",
+                "lbl-contrast-phases": "Patrón de Realce tras Contraste IV:",
+                "lbl-art-phase": "Fase Arterial:",
+                "opt-art-homo": "Homogéneo",
+                "opt-art-hetero": "Heterogéneo",
+                "lbl-pv-phase": "Fase Portal-Venosa:",
+                "opt-pv-homo": "Homogéneo",
+                "opt-pv-hetero": "Heterogéneo",
+                "lbl-hba-excretion": "Excreción HBA:",
+                "opt-hba-homo": "Homogénea",
+                "opt-hba-hetero": "Heterogénea",
+                "lbl-focal-lesion": "Lesión Focal Hepática:",
+                "opt-focal-no": "No",
+                "opt-focal-yes": "Sí",
+                "lbl-focal-type": "Naturaleza sospechada:",
+                "opt-fnature-benign": "Benigna (quiste, hemangioma)",
+                "opt-fnature-malig": "Sospecha de Malignidad (Colangiocarcinoma / CHC)",
+                "lbl-focal-desc": "Descripción / Localización / Tamaño:",
+                "lbl-decomp": "Signos de Hipertensión Portal / Descompensación:",
+                "lbl-htp-col": "Colaterales venosas porto-sistémicas",
+                "lbl-htp-spl": "Esplenomegalia",
+                "lbl-htp-asc": "Ascitis",
+                "lbl-nodes": "Adenopatías perihepáticas aumentadas (> 10 mm en eje corto):",
+                "opt-nodes-no": "No",
+                "opt-nodes-yes": "Sí",
+                "lbl-spleen-size": "Diámetro bipolar esplénico:",
+                "spleen-status-badge": "(Normal ≤ 12 cm)",
+                "lbl-aip": "Pancreatitis Autoinmune (AIP) / Sospecha IgG4:",
+                "opt-aip-out": "Descartada / No sugestiva (Rule-out)",
+                "opt-aip-in": "Sospecha de afectación IgG4 (Rule-in)",
+                "lbl-mpd": "Dilatación del conducto pancreático principal (Wirsung):",
+                "opt-mpd-no": "No",
+                "opt-mpd-yes": "Sí",
+                "lbl-mpd-caliber": "Calibre del Wirsung:",
+                "title-anali-nogd": "Score ANALI (Sin Gadolinio)",
+                "desc-anali-nogd": "Dilatación intrahepática + Dismorfia + Signos HTP (Rango 0-3)",
+                "title-anali-gd": "Score ANALI (Con Gadolinio)",
+                "desc-anali-gd": "ANALI sin Gd + Heterogeneidad parenquimatosa portal/tardía (+2 pts) (Rango 0-5)",
+                "free-notes-placeholder": "Añade aquí hallazgos adicionales, comparativa con estudios previos, etc...",
+                "repHeader": "INFORME DE RESONANCIA MAGNÉTICA: COLANGITIS ESCLEROSANTE PRIMARIA (ESGAR 2025)",
+                "repIndication": "INDICACIÓN / TIPO",
+                "repPrior": "INTERVENCIONES PREVIAS",
+                "repTech": "TÉCNICA Y PROTOCOLO",
+                "repBiliaryTitle": "1. VÍA BILIAR",
+                "repGbTitle": "2. VESÍCULA BILIAR Y LITIASIS",
+                "repLiverTitle": "3. PARÉNQUIMA HEPÁTICO",
+                "repSpleenTitle": "4. BAZO",
+                "repPancreasTitle": "5. PÁNCREAS",
+                "repScoresTitle": "6. ESTRATIFICACIÓN PRONÓSTICA (SCORE ANALI)",
+                "repConclusionTitle": "CONCLUSIÓN / IMPRESIÓN",
+                "repNotesTitle": "OBSERVACIONES / COMENTARIOS"
+        },
+        "ca": {
+                "ui-main-title": "RM en Colangitis Esclerosant Primària",
+                "ui-subtitle": "Mòdul d'Informe Estructurat • Guies de Consens Europeu (Ippolito et al., 2025)",
+                "theme-btn-dark": "🌙 Mode Fosc",
+                "theme-btn-light": "☀️ Mode Clar",
+                "reset-btn": "↺ Reiniciar",
+                "btn-copy": "📋 Copiar Informe",
+                "btn-download": "💾 Guardar",
+                "toast": "Informe copiat al porta-retalls",
+                "ui-rep-preview-title": "Previsualització d'Informe Estructurat",
+                "sec-general": "👤 Dades de l'Estudi i Indicació",
+                "sec-protocol": "⚙️ Protocol d'Adquisició (Consens ESGAR)",
+                "sec-biliary": "🌱 1. Via Biliar (Biliary Findings)",
+                "sec-gb": "💧 2. Vesícula Biliar i Litiasi",
+                "sec-liver": "🫀 3. Parènquima Hepàtic (Liver Findings)",
+                "sec-spleen": "🍆 4. Melsa (Spleen)",
+                "sec-pancreas": "🔬 5. Pàncrees",
+                "sec-anali": "📊 6. Score Pronòstic ANALI Integrat",
+                "sec-notes": "✎ 7. Observacions Addicionals",
+                "lbl-exam-type": "Tipus d'Exploració:",
+                "opt-exam-baseline": "Estudi inicial / Sospita diagnòstica",
+                "opt-exam-surv": "Seguiment anual / Cribratge de complicacions",
+                "opt-exam-stent": "Control post-intervencionisme / Stent",
+                "opt-exam-acute": "Sospita de colangitis bacteriana / Complicació aguda",
+                "lbl-prior-interventions": "Intervencions Prèvies:",
+                "opt-prior-none": "Cap / No consten",
+                "opt-prior-stent": "Stent biliar endoscòpic previ",
+                "opt-prior-ercp": "CPRE / Dilatació amb baló prèvia",
+                "opt-prior-chole": "Colecistectomia prèvia",
+                "opt-prior-surg": "Cirurgia biliar / Derivació biliodigestiva",
+                "lbl-field": "Camp Magnètic:",
+                "lbl-fasting": "Dejuni previ ≥ 4 hores:",
+                "opt-fasting-yes": "Sí",
+                "opt-fasting-no": "No",
+                "lbl-sequences": "Seqüències Adquirides:",
+                "lbl-seq-t2": "T2WI no-FS (axial/coronal)",
+                "lbl-seq-t1": "T1WI En/Fora fase o DIXON",
+                "lbl-seq-mrcp": "Colangio-RM 2D/3D (MRCP)",
+                "lbl-seq-dwi": "Difusió (DWI baix i alt b)",
+                "lbl-seq-dyn": "T1 Dinàmic amb Contrast IV",
+                "lbl-seq-hba": "Fase Hepatobiliar HBA (gadoxètic)",
+                "lbl-strictures": "Estenosis Biliars:",
+                "opt-strict-absent": "Absents",
+                "opt-strict-present": "Presents",
+                "lbl-strict-num": "Nombre d'Estenosis:",
+                "opt-num-single": "Única",
+                "opt-num-multi": "Múltiples",
+                "lbl-strict-loc": "Localització:",
+                "opt-loc-intra": "Intrahepàtica",
+                "opt-loc-extra": "Extrahepàtica",
+                "opt-loc-both": "Ambdues",
+                "lbl-strict-grade": "Severitat / Grau:",
+                "opt-grade-low": "Baix grau (< 75%)",
+                "opt-grade-high": "Alt grau (≥ 75%)",
+                "lbl-strict-longest": "Longitud de l'estenosi més llarga:",
+                "lbl-strict-severe": "Longitud de l'estenosi més severa:",
+                "lbl-dilations": "Dilatació de la Via Biliar:",
+                "opt-dil-absent": "Absent",
+                "opt-dil-present": "Present",
+                "lbl-dil-max": "Calibre màxim:",
+                "lbl-dil-site": "Distribució de la dilatació:",
+                "opt-dilsite-intra": "Intrahepàtica focal / segmentària",
+                "opt-dilsite-diffuse": "Difusa intrahepàtica",
+                "opt-dilsite-main": "Via biliar principal",
+                "lbl-thickening": "Engruiximent Parietal de Via Biliar (> 2 mm):",
+                "opt-thick-no": "No (≤ 2 mm)",
+                "opt-thick-yes": "Sí (> 2 mm) [Patològic]",
+                "lbl-gb-presence": "Vesícula Biliar:",
+                "opt-gb-pres": "Present",
+                "opt-gb-abs": "Absent (Colecistectomia)",
+                "lbl-gb-wall": "Alteracions parietals vesiculars:",
+                "opt-gbwall-no": "No",
+                "opt-gbwall-yes": "Sí",
+                "lbl-gb-lith": "Colelitiasi:",
+                "opt-gblith-no": "No",
+                "opt-gblith-yes": "Sí",
+                "lbl-cystic-irreg": "Irregularitats al conducte cístic:",
+                "opt-cystic-no": "No",
+                "opt-cystic-yes": "Sí",
+                "lbl-tree-lith": "Litiasi a l'arbre biliar (Coledocolitiasi / Hepatolitiasi):",
+                "opt-treelith-no": "No",
+                "opt-treelith-yes": "Sí",
+                "lbl-treelith-loc": "Localització de litiasi:",
+                "opt-tlloc-intra": "Intrahepàtica",
+                "opt-tlloc-extra": "Extrahepàtica",
+                "opt-tlloc-both": "Ambdues",
+                "lbl-morphology": "Morfologia Hepàtica:",
+                "opt-morph-normal": "Normal",
+                "opt-morph-abnormal": "Alterada / Dismòrfica",
+                "lbl-margins": "Contorns Hepàtics:",
+                "opt-marg-smooth": "Llisos",
+                "opt-marg-irregular": "Irregulars / Lobulats",
+                "lbl-steatosis": "Esteatosi:",
+                "opt-steat-no": "No",
+                "opt-steat-yes": "Sí",
+                "lbl-fibrosis": "Fibrosi Confluent:",
+                "opt-fib-no": "No",
+                "opt-fib-yes": "Sí",
+                "lbl-edema": "Èdema Agut / Inflamació Periductal:",
+                "opt-edema-no": "No",
+                "opt-edema-yes": "Sí",
+                "lbl-reg-nodules": "Nòduls Regeneratius (> 3 mm):",
+                "opt-nod-no": "No",
+                "opt-nod-yes": "Sí (Macronodulars)",
+                "lbl-contrast-phases": "Patró de Realçament després de Contrast IV:",
+                "lbl-art-phase": "Fase Arterial:",
+                "opt-art-homo": "Homogeni",
+                "opt-art-hetero": "Heterogeni",
+                "lbl-pv-phase": "Fase Portal-Venosa:",
+                "opt-pv-homo": "Homogeni",
+                "opt-pv-hetero": "Heterogeni",
+                "lbl-hba-excretion": "Excreció HBA:",
+                "opt-hba-homo": "Homogènia",
+                "opt-hba-hetero": "Heterogènia",
+                "lbl-focal-lesion": "Lesió Focal Hepàtica:",
+                "opt-focal-no": "No",
+                "opt-focal-yes": "Sí",
+                "lbl-focal-type": "Naturalesa sospitada:",
+                "opt-fnature-benign": "Benigna (quist, hemangioma)",
+                "opt-fnature-malig": "Sospita de Malignitat (Colangiocarcinoma / CHC)",
+                "lbl-focal-desc": "Descripció / Localització / Mida:",
+                "lbl-decomp": "Signes d'Hipertensió Portal / Descompensació:",
+                "lbl-htp-col": "Col·laterals venoses portosistèmiques",
+                "lbl-htp-spl": "Esplenomegàlia",
+                "lbl-htp-asc": "Ascites",
+                "lbl-nodes": "Adenopaties perihepàtiques augmentades (> 10 mm en eix curt):",
+                "opt-nodes-no": "No",
+                "opt-nodes-yes": "Sí",
+                "lbl-spleen-size": "Diàmetre bipolar esplènic:",
+                "spleen-status-badge": "(Normal ≤ 12 cm)",
+                "lbl-aip": "Pancreatitis Autoimmune (AIP) / Sospita IgG4:",
+                "opt-aip-out": "Descartada / No suggestiva (Rule-out)",
+                "opt-aip-in": "Sospita d'afectació IgG4 (Rule-in)",
+                "lbl-mpd": "Dilatació del conducte pancreàtic principal (Wirsung):",
+                "opt-mpd-no": "No",
+                "opt-mpd-yes": "Sí",
+                "lbl-mpd-caliber": "Calibre del Wirsung:",
+                "title-anali-nogd": "Score ANALI (Sense Gadolini)",
+                "desc-anali-nogd": "Dilatació intrahepàtica + Dismòrfia + Signes HTP (Rang 0-3)",
+                "title-anali-gd": "Score ANALI (Amb Gadolini)",
+                "desc-anali-gd": "ANALI sense Gd + Heterogeneïtat parenquimatosa portal/tardana (+2 pts) (Rang 0-5)",
+                "free-notes-placeholder": "Afegiu aquí troballes addicionals, comparativa amb estudis previs, etc...",
+                "repHeader": "INFORME DE RESONÀNCIA MAGNÈTICA: COLANGITIS ESCLEROSANT PRIMÀRIA (ESGAR 2025)",
+                "repIndication": "INDICACIÓ / TIPUS",
+                "repPrior": "INTERVENCIONS PRÈVIES",
+                "repTech": "TÈCNICA I PROTOCOL",
+                "repBiliaryTitle": "1. VIA BILIAR",
+                "repGbTitle": "2. VESÍCULA BILIAR I LITIASI",
+                "repLiverTitle": "3. PARÈNQUIMA HEPÀTIC",
+                "repSpleenTitle": "4. MELSA",
+                "repPancreasTitle": "5. PÀNCREES",
+                "repScoresTitle": "6. ESTRATIFICACIÓ PRONÒSTICA (SCORE ANALI)",
+                "repConclusionTitle": "CONCLUSIÓ / IMPRESSIÓ",
+                "repNotesTitle": "OBSERVACIONS / COMENTARIS"
+        },
+        "en": {
+                "ui-main-title": "MR Imaging in Primary Sclerosing Cholangitis",
+                "ui-subtitle": "Structured Reporting Module • European Consensus Statement (Ippolito et al., 2025)",
+                "theme-btn-dark": "🌙 Dark Mode",
+                "theme-btn-light": "☀️ Light Mode",
+                "reset-btn": "↺ Reset",
+                "btn-copy": "📋 Copy Report",
+                "btn-download": "💾 Save",
+                "toast": "Report copied to clipboard",
+                "ui-rep-preview-title": "Structured Report Preview",
+                "sec-general": "👤 Study Information & Indication",
+                "sec-protocol": "⚙️ MR Acquisition Protocol (ESGAR Consensus)",
+                "sec-biliary": "🌱 1. Biliary Findings",
+                "sec-gb": "💧 2. Gallbladder & Lithiasis",
+                "sec-liver": "🫀 3. Liver Parenchyma",
+                "sec-spleen": "🍆 4. Spleen",
+                "sec-pancreas": "🔬 5. Pancreas",
+                "sec-anali": "📊 6. Integrated ANALI Prognostic Score",
+                "sec-notes": "✎ 7. Additional Notes",
+                "lbl-exam-type": "Examination Type:",
+                "opt-exam-baseline": "Baseline / Initial diagnostic suspicion",
+                "opt-exam-surv": "Annual surveillance / Screening for complications",
+                "opt-exam-stent": "Post-intervention / Biliary stent follow-up",
+                "opt-exam-acute": "Suspected bacterial cholangitis / Acute complication",
+                "lbl-prior-interventions": "Prior Interventions:",
+                "opt-prior-none": "None / Not documented",
+                "opt-prior-stent": "Prior endoscopic biliary stent",
+                "opt-prior-ercp": "Prior ERCP / Balloon dilation",
+                "opt-prior-chole": "Prior cholecystectomy",
+                "opt-prior-surg": "Prior biliary surgery / Biliodigestive bypass",
+                "lbl-field": "Magnetic Field:",
+                "lbl-fasting": "Fasting ≥ 4 hours:",
+                "opt-fasting-yes": "Yes",
+                "opt-fasting-no": "No",
+                "lbl-sequences": "Acquired Sequences:",
+                "lbl-seq-t2": "T2WI non-FS (axial/coronal)",
+                "lbl-seq-t1": "T1WI In/Out phase or DIXON",
+                "lbl-seq-mrcp": "2D/3D MR Cholangiopancreatography (MRCP)",
+                "lbl-seq-dwi": "Diffusion-weighted imaging (DWI low & high b)",
+                "lbl-seq-dyn": "Dynamic T1 with IV Contrast",
+                "lbl-seq-hba": "Hepatobiliary Phase (HBA gadoxetic acid)",
+                "lbl-strictures": "Biliary Strictures:",
+                "opt-strict-absent": "Absent",
+                "opt-strict-present": "Present",
+                "lbl-strict-num": "Number of Strictures:",
+                "opt-num-single": "Single",
+                "opt-num-multi": "Multiple",
+                "lbl-strict-loc": "Localization:",
+                "opt-loc-intra": "Intrahepatic",
+                "opt-loc-extra": "Extrahepatic",
+                "opt-loc-both": "Both",
+                "lbl-strict-grade": "Severity / Grade:",
+                "opt-grade-low": "Low-grade (< 75%)",
+                "opt-grade-high": "High-grade (≥ 75%)",
+                "lbl-strict-longest": "Length of longest stricture:",
+                "lbl-strict-severe": "Length of most severe stricture:",
+                "lbl-dilations": "Biliary Dilation:",
+                "opt-dil-absent": "Absent",
+                "opt-dil-present": "Present",
+                "lbl-dil-max": "Maximum caliber:",
+                "lbl-dil-site": "Dilation distribution:",
+                "opt-dilsite-intra": "Intrahepatic focal / segmental",
+                "opt-dilsite-diffuse": "Diffuse intrahepatic",
+                "opt-dilsite-main": "Common bile duct",
+                "lbl-thickening": "Bile Duct Wall Thickening (> 2 mm):",
+                "opt-thick-no": "No (≤ 2 mm)",
+                "opt-thick-yes": "Yes (> 2 mm) [Pathologic]",
+                "lbl-gb-presence": "Gallbladder:",
+                "opt-gb-pres": "Present",
+                "opt-gb-abs": "Absent (Cholecystectomy)",
+                "lbl-gb-wall": "Gallbladder wall abnormalities:",
+                "opt-gbwall-no": "No",
+                "opt-gbwall-yes": "Yes",
+                "lbl-gb-lith": "Cholelithiasis:",
+                "opt-gblith-no": "No",
+                "opt-gblith-yes": "Yes",
+                "lbl-cystic-irreg": "Cystic duct irregularities:",
+                "opt-cystic-no": "No",
+                "opt-cystic-yes": "Yes",
+                "lbl-tree-lith": "Biliary tree lithiasis (Choledocholithiasis / Hepatolithiasis):",
+                "opt-treelith-no": "No",
+                "opt-treelith-yes": "Yes",
+                "lbl-treelith-loc": "Lithiasis localization:",
+                "opt-tlloc-intra": "Intrahepatic",
+                "opt-tlloc-extra": "Extrahepatic",
+                "opt-tlloc-both": "Both",
+                "lbl-morphology": "Liver Morphology:",
+                "opt-morph-normal": "Normal",
+                "opt-morph-abnormal": "Altered / Dysmorphic",
+                "lbl-margins": "Liver Contours:",
+                "opt-marg-smooth": "Smooth",
+                "opt-marg-irregular": "Irregular / Lobulated",
+                "lbl-steatosis": "Steatosis:",
+                "opt-steat-no": "No",
+                "opt-steat-yes": "Yes",
+                "lbl-fibrosis": "Confluent Fibrosis:",
+                "opt-fib-no": "No",
+                "opt-fib-yes": "Yes",
+                "lbl-edema": "Acute Edema / Periductal Inflammation:",
+                "opt-edema-no": "No",
+                "opt-edema-yes": "Yes",
+                "lbl-reg-nodules": "Regenerative Nodules (> 3 mm):",
+                "opt-nod-no": "No",
+                "opt-nod-yes": "Yes (Macronodular)",
+                "lbl-contrast-phases": "IV Contrast Enhancement Pattern:",
+                "lbl-art-phase": "Arterial Phase:",
+                "opt-art-homo": "Homogeneous",
+                "opt-art-hetero": "Heterogeneous",
+                "lbl-pv-phase": "Portal-Venous Phase:",
+                "opt-pv-homo": "Homogeneous",
+                "opt-pv-hetero": "Heterogeneous",
+                "lbl-hba-excretion": "HBA Excretion:",
+                "opt-hba-homo": "Homogeneous",
+                "opt-hba-hetero": "Heterogeneous",
+                "lbl-focal-lesion": "Focal Liver Lesion:",
+                "opt-focal-no": "No",
+                "opt-focal-yes": "Yes",
+                "lbl-focal-type": "Suspected nature:",
+                "opt-fnature-benign": "Benign (cyst, hemangioma)",
+                "opt-fnature-malig": "Suspicious for Malignancy (Cholangiocarcinoma / HCC)",
+                "lbl-focal-desc": "Description / Localization / Size:",
+                "lbl-decomp": "Signs of Portal Hypertension / Decompensation:",
+                "lbl-htp-col": "Portosystemic venous collaterals",
+                "lbl-htp-spl": "Splenomegaly",
+                "lbl-htp-asc": "Ascites",
+                "lbl-nodes": "Enlarged perihepatic lymph nodes (> 10 mm short axis):",
+                "opt-nodes-no": "No",
+                "opt-nodes-yes": "Yes",
+                "lbl-spleen-size": "Splenic bipolar diameter:",
+                "spleen-status-badge": "(Normal ≤ 12 cm)",
+                "lbl-aip": "Autoimmune Pancreatitis (AIP) / IgG4 Suspicion:",
+                "opt-aip-out": "Rule-out / Unremarkable",
+                "opt-aip-in": "Rule-in / Suspicion of IgG4 involvement",
+                "lbl-mpd": "Main pancreatic duct dilation (Wirsung):",
+                "opt-mpd-no": "No",
+                "opt-mpd-yes": "Yes",
+                "lbl-mpd-caliber": "Wirsung caliber:",
+                "title-anali-nogd": "ANALI Score (Without Gadolinium)",
+                "desc-anali-nogd": "Intrahepatic dilation + Dysmorphia + PHT signs (Range 0-3)",
+                "title-anali-gd": "ANALI Score (With Gadolinium)",
+                "desc-anali-gd": "ANALI without Gd + Portal/delayed parenchymal heterogeneity (+2 pts) (Range 0-5)",
+                "free-notes-placeholder": "Add additional findings, comparison with prior exams, etc...",
+                "repHeader": "MRI REPORT: PRIMARY SCLEROSING CHOLANGITIS (ESGAR 2025)",
+                "repIndication": "INDICATION / EXAM TYPE",
+                "repPrior": "PRIOR INTERVENTIONS",
+                "repTech": "TECHNIQUE & PROTOCOL",
+                "repBiliaryTitle": "1. BILIARY FINDINGS",
+                "repGbTitle": "2. GALLBLADDER & LITHIASIS",
+                "repLiverTitle": "3. LIVER PARENCHYMA",
+                "repSpleenTitle": "4. SPLEEN",
+                "repPancreasTitle": "5. PANCREAS",
+                "repScoresTitle": "6. PROGNOSTIC STRATIFICATION (ANALI SCORE)",
+                "repConclusionTitle": "CONCLUSION / IMPRESSION",
+                "repNotesTitle": "ADDITIONAL NOTES"
+        }
+};
 
+        // Theme Toggle
         function toggleTheme() {
-            const body = document.body;
-            const currentTheme = body.getAttribute("data-theme");
+            const currentTheme = document.documentElement.getAttribute("data-theme") || "light";
             const newTheme = currentTheme === "dark" ? "light" : "dark";
-            body.setAttribute("data-theme", newTheme);
-            const lang = document.getElementById("lang-selector").value;
-            document.getElementById("theme-btn").innerHTML = newTheme === "dark" ? translations[lang].themeLight : translations[lang].themeDark;
+            document.documentElement.setAttribute("data-theme", newTheme);
+            document.body.setAttribute("data-theme", newTheme);
+            try {
+                localStorage.setItem("esgar_psc_theme", newTheme);
+            } catch (e) {}
+            updateThemeButtonText();
         }
 
+        function updateThemeButtonText() {
+            const lang = document.getElementById("lang-selector")?.value || "es";
+            const t = translations[lang] || translations.es;
+            const currentTheme = document.documentElement.getAttribute("data-theme") || "light";
+            const btn = document.getElementById("theme-btn");
+            if (btn) {
+                btn.innerHTML = currentTheme === "dark" ? t["theme-btn-light"] : t["theme-btn-dark"];
+            }
+        }
+
+        // Language Switcher
         function changeLanguage() {
             const lang = document.getElementById("lang-selector").value;
-            const t = translations[lang];
-            document.getElementById("ui-main-title").innerText = t.mainTitle;
-            document.getElementById("ui-subtitle").innerText = t.subtitle;
-            const currentTheme = document.body.getAttribute("data-theme");
-            document.getElementById("theme-btn").innerHTML = currentTheme === "dark" ? t.themeLight : t.themeDark;
-            document.getElementById("reset-btn").innerHTML = t.resetBtn;
-            document.getElementById("btn-copy").innerHTML = t.btnCopy;
-            document.getElementById("btn-download").innerHTML = t.btnDownload;
+            const t = translations[lang] || translations.es;
+
+            try {
+                localStorage.setItem("esgar_psc_lang", lang);
+            } catch (e) {}
+
+            // Update all UI elements by ID
+            for (const [key, val] of Object.entries(t)) {
+                const el = document.getElementById(key);
+                if (el) {
+                    if (el.tagName === "INPUT" || el.tagName === "TEXTAREA") {
+                        if (el.placeholder !== undefined) el.placeholder = val;
+                    } else if (key !== "theme-btn" && key !== "lang-selector") {
+                        el.innerHTML = val;
+                    }
+                }
+            }
+
+            // Update free notes placeholder
+            const fn = document.getElementById("free-notes");
+            if (fn && t["free-notes-placeholder"]) {
+                fn.placeholder = t["free-notes-placeholder"];
+            }
+
+            // Update theme button text according to active language and current theme
+            updateThemeButtonText();
+
+            // Re-render report and scores in selected language
             updateReport();
         }
 
+        // Conditional visibility handlers
         function onStricturesChange() {
             const val = document.querySelector('input[name="strictures"]:checked')?.value;
             const box = document.getElementById("box-strictures");
-            if (val === "present") {
-                box.classList.add("visible");
-            } else {
-                box.classList.remove("visible");
+            if (box) {
+                if (val === "present") box.classList.add("visible");
+                else box.classList.remove("visible");
             }
             onStrictGradeChange();
             updateReport();
@@ -1012,11 +1456,13 @@
         function onStrictGradeChange() {
             const strictVal = document.querySelector('input[name="strictures"]:checked')?.value;
             const gradeVal = document.querySelector('input[name="strict-grade"]:checked')?.value;
-            const notice = document.getElementById("notice-high-grade");
-            if (strictVal === "present" && gradeVal === "high") {
-                notice.style.display = "flex";
-            } else {
-                notice.style.display = "none";
+            const alertBox = document.getElementById("alert-dominant-stricture");
+            if (alertBox) {
+                if (strictVal === "present" && gradeVal === "high") {
+                    alertBox.style.display = "block";
+                } else {
+                    alertBox.style.display = "none";
+                }
             }
             updateReport();
         }
@@ -1024,10 +1470,9 @@
         function onDilationsChange() {
             const val = document.querySelector('input[name="dilations"]:checked')?.value;
             const box = document.getElementById("box-dilations");
-            if (val === "present") {
-                box.classList.add("visible");
-            } else {
-                box.classList.remove("visible");
+            if (box) {
+                if (val === "present") box.classList.add("visible");
+                else box.classList.remove("visible");
             }
             updateReport();
         }
@@ -1035,57 +1480,29 @@
         function onGbPresenceChange() {
             const val = document.querySelector('input[name="gb-presence"]:checked')?.value;
             const box = document.getElementById("box-gb");
-            if (val === "yes") {
-                box.classList.add("visible");
-            } else {
-                box.classList.remove("visible");
+            if (box) {
+                if (val === "yes") box.classList.add("visible");
+                else box.classList.remove("visible");
             }
             updateReport();
         }
 
         function onTreeLithChange() {
             const val = document.querySelector('input[name="tree-lith"]:checked')?.value;
-            const box = document.getElementById("box-tree-lith");
-            if (val === "yes") {
-                box.classList.add("visible");
-            } else {
-                box.classList.remove("visible");
+            const box = document.getElementById("box-treelith-loc");
+            if (box) {
+                if (val === "yes") box.classList.add("visible");
+                else box.classList.remove("visible");
             }
-            updateReport();
-        }
-
-        function onHbaSeqChange() {
-            const checked = document.getElementById("seq-hba").checked;
-            document.getElementById("row-hba-excretion").style.display = checked ? "flex" : "none";
             updateReport();
         }
 
         function onFocalLesionChange() {
             const val = document.querySelector('input[name="focal-lesion"]:checked')?.value;
             const box = document.getElementById("box-focal-lesion");
-            if (val === "yes") {
-                box.classList.add("visible");
-            } else {
-                box.classList.remove("visible");
-            }
-            updateReport();
-        }
-
-        function onSpleenSizeChange() {
-            const val = parseFloat(document.getElementById("spleen-size").value);
-            const badge = document.getElementById("spleen-status-badge");
-            if (!isNaN(val)) {
-                if (val > 12) {
-                    badge.innerText = `(Esplenomegalia: > 12 cm)`;
-                    badge.style.color = "var(--danger-text)";
-                    document.getElementById("htp-splenomegaly").checked = true;
-                } else {
-                    badge.innerText = `(Normal: ≤ 12 cm)`;
-                    badge.style.color = "var(--success-text)";
-                }
-            } else {
-                badge.innerText = `(Normal ≤ 12 cm)`;
-                badge.style.color = "var(--text-secondary)";
+            if (box) {
+                if (val === "yes") box.classList.add("visible");
+                else box.classList.remove("visible");
             }
             updateReport();
         }
@@ -1093,369 +1510,414 @@
         function onMpdChange() {
             const val = document.querySelector('input[name="mpd"]:checked')?.value;
             const box = document.getElementById("box-mpd");
-            if (val === "yes") {
-                box.classList.add("visible");
-            } else {
-                box.classList.remove("visible");
+            if (box) {
+                if (val === "yes") box.classList.add("visible");
+                else box.classList.remove("visible");
             }
             updateReport();
         }
 
+        function onHbaSeqChange() {
+            const checked = document.getElementById("seq-hba")?.checked;
+            const row = document.getElementById("row-hba-excretion");
+            if (row) {
+                row.style.display = checked ? "flex" : "none";
+            }
+            updateReport();
+        }
+
+        function onSpleenSizeChange() {
+            const val = parseFloat(document.getElementById("spleen-size")?.value);
+            const badge = document.getElementById("spleen-status-badge");
+            const lang = document.getElementById("lang-selector")?.value || "es";
+            if (badge) {
+                if (isNaN(val) || val <= 0) {
+                    badge.innerText = lang === "en" ? "(Normal ≤ 12 cm)" : (lang === "ca" ? "(Normal ≤ 12 cm)" : "(Normal ≤ 12 cm)");
+                    badge.style.background = "var(--badge-bg)";
+                    badge.style.color = "var(--badge-text)";
+                } else if (val > 12) {
+                    badge.innerText = lang === "en" ? "Splenomegaly (> 12 cm)" : (lang === "ca" ? "Esplenomegàlia (> 12 cm)" : "Esplenomegalia (> 12 cm)");
+                    badge.style.background = "var(--danger-bg)";
+                    badge.style.color = "var(--danger-text)";
+                } else {
+                    badge.innerText = lang === "en" ? "Normal size (≤ 12 cm)" : (lang === "ca" ? "Mida normal (≤ 12 cm)" : "Tamaño normal (≤ 12 cm)");
+                    badge.style.background = "var(--success-bg)";
+                    badge.style.color = "var(--success-text)";
+                }
+            }
+            updateReport();
+        }
+
+        // ANALI Score Calculation (ESGAR Consensus & J Hepatol 2014/2019)
         function calculateAnali() {
-            // ANALI sin Gd:
-            // 1. Dilatación intrahepática: 1 pt
-            // 2. Dismorfia hepática: 1 pt
-            // 3. Hipertensión portal (esplenomegalia, ascitis o colaterales): 1 pt
             let scoreNoGd = 0;
-            const dilPresent = document.querySelector('input[name="dilations"]:checked')?.value === "present";
+            let scoreGd = 0;
+
+            const dil = document.querySelector('input[name="dilations"]:checked')?.value;
             const dilSite = document.querySelector('input[name="dil-site"]:checked')?.value;
-            if (dilPresent && (dilSite === "intra" || dilSite === "diffuse")) {
+            if (dil === "present" && (dilSite === "intra" || dilSite === "diffuse")) {
                 scoreNoGd += 1;
             }
 
-            const morphAbnormal = document.querySelector('input[name="morphology"]:checked')?.value === "abnormal";
-            if (morphAbnormal) {
+            const morph = document.querySelector('input[name="morphology"]:checked')?.value;
+            if (morph === "abnormal") {
                 scoreNoGd += 1;
             }
 
-            const htpCollaterals = document.getElementById("htp-collaterals").checked;
-            const htpSpleno = document.getElementById("htp-splenomegaly").checked;
-            const htpAscites = document.getElementById("htp-ascites").checked;
-            if (htpCollaterals || htpSpleno || htpAscites) {
+            const htpCol = document.getElementById("htp-collaterals")?.checked;
+            const htpSpl = document.getElementById("htp-splenomegaly")?.checked;
+            const htpAsc = document.getElementById("htp-ascites")?.checked;
+            const splSize = parseFloat(document.getElementById("spleen-size")?.value);
+            const hasSplenomegaly = htpSpl || (!isNaN(splSize) && splSize > 12);
+            if (htpCol || hasSplenomegaly || htpAsc) {
                 scoreNoGd += 1;
             }
 
-            // ANALI con Gd: scoreNoGd + heterogeneidad en fase portal-venosa (2 pts)
-            const pvInhomogeneous = document.querySelector('input[name="pv-phase"]:checked')?.value === "inhomogeneous";
-            let scoreGd = scoreNoGd + (pvInhomogeneous ? 2 : 0);
-
-            // Actualizar UI
-            document.getElementById("anali-nogd-val").innerText = `${scoreNoGd} / 3`;
-            const tagNoGd = document.getElementById("anali-nogd-tag");
-            if (scoreNoGd <= 1) {
-                tagNoGd.className = "anali-risk-tag risk-low";
-                tagNoGd.innerText = "Riesgo Bajo";
-            } else {
-                tagNoGd.className = "anali-risk-tag risk-high";
-                tagNoGd.innerText = "Riesgo Alto";
+            scoreGd = scoreNoGd;
+            const pvPhase = document.querySelector('input[name="pv-phase"]:checked')?.value;
+            if (pvPhase === "inhomogeneous") {
+                scoreGd += 2;
             }
 
-            document.getElementById("anali-gd-val").innerText = `${scoreGd} / 5`;
-            const tagGd = document.getElementById("anali-gd-tag");
-            if (scoreGd <= 1) {
-                tagGd.className = "anali-risk-tag risk-low";
-                tagGd.innerText = "Riesgo Bajo";
-            } else if (scoreGd <= 3) {
-                tagGd.className = "anali-risk-tag risk-intermediate";
-                tagGd.innerText = "Riesgo Intermedio";
-            } else {
-                tagGd.className = "anali-risk-tag risk-high";
-                tagGd.innerText = "Riesgo Alto";
+            // Update UI Badges
+            const lang = document.getElementById("lang-selector")?.value || "es";
+            const valNoGdEl = document.getElementById("anali-nogd-val");
+            const tagNoGdEl = document.getElementById("anali-nogd-tag");
+            const valGdEl = document.getElementById("anali-gd-val");
+            const tagGdEl = document.getElementById("anali-gd-tag");
+
+            if (valNoGdEl) valNoGdEl.innerText = scoreNoGd + " / 3";
+            if (tagNoGdEl) {
+                if (scoreNoGd <= 1) {
+                    tagNoGdEl.innerText = lang === "en" ? "Low Risk" : (lang === "ca" ? "Risc Baix" : "Riesgo Bajo");
+                    tagNoGdEl.className = "score-tag tag-low";
+                } else {
+                    tagNoGdEl.innerText = lang === "en" ? "High Risk" : (lang === "ca" ? "Risc Alt" : "Riesgo Alto");
+                    tagNoGdEl.className = "score-tag tag-high";
+                }
+            }
+
+            if (valGdEl) valGdEl.innerText = scoreGd + " / 5";
+            if (tagGdEl) {
+                if (scoreGd <= 1) {
+                    tagGdEl.innerText = lang === "en" ? "Low Risk" : (lang === "ca" ? "Risc Baix" : "Riesgo Bajo");
+                    tagGdEl.className = "score-tag tag-low";
+                } else if (scoreGd <= 3) {
+                    tagGdEl.innerText = lang === "en" ? "Intermediate Risk" : (lang === "ca" ? "Risc Intermedi" : "Riesgo Intermedio");
+                    tagGdEl.className = "score-tag tag-mod";
+                } else {
+                    tagGdEl.innerText = lang === "en" ? "High Risk" : (lang === "ca" ? "Risc Alt" : "Riesgo Alto");
+                    tagGdEl.className = "score-tag tag-high";
+                }
             }
 
             return { scoreNoGd, scoreGd };
         }
 
+        // Live Report Generation
         function updateReport() {
-            const lang = document.getElementById("lang-selector").value;
-            const t = translations[lang];
+            const lang = document.getElementById("lang-selector")?.value || "es";
+            const t = translations[lang] || translations.es;
             const anali = calculateAnali();
 
-            let r = "";
-            r += "========================================================================
-";
-            r += `${t.repTitle}
-`;
-            r += "========================================================================
+            let lines = [];
+            lines.push("========================================================================");
+            lines.push(t.repHeader);
+            lines.push("========================================================================\n");
 
-";
-
-            // DATOS ESTUDIO
+            // Indicación
             const examSelect = document.getElementById("exam-type");
-            const examText = examSelect.options[examSelect.selectedIndex].text;
+            const examText = examSelect ? examSelect.options[examSelect.selectedIndex].text : "";
             const priorSelect = document.getElementById("prior-interventions");
-            const priorText = priorSelect.options[priorSelect.selectedIndex].text;
-            r += `INDICACIÓN / TIPO: ${examText}
-`;
-            r += `INTERVENCIONES PREVIAS: ${priorText}
+            const priorText = priorSelect ? priorSelect.options[priorSelect.selectedIndex].text : "";
+            lines.push(t.repIndication + ": " + examText);
+            lines.push(t.repPrior + ": " + priorText + "\n");
 
-`;
-
-            // TECNICA
-            r += `${t.secTechnique}
-`;
+            // Técnica
+            lines.push(t.repTech + ":");
             const field = document.querySelector('input[name="field-strength"]:checked')?.value || "1.5T";
-            const fasting = document.querySelector('input[name="fasting"]:checked')?.value === "yes" ? "Sí (≥ 4h)" : "No";
-            r += ` - Campo Magnético: ${field} | Ayuno previo: ${fasting}
-`;
+            const fasting = document.querySelector('input[name="fasting"]:checked')?.value === "yes";
+            const txtFasting = lang === "en" ? (fasting ? "Yes (≥ 4h)" : "No") : (fasting ? "Sí (≥ 4h)" : "No");
+            lines.push(" - " + (lang === "en" ? "Magnetic field: " : (lang === "ca" ? "Camp magnètic: " : "Campo magnético: ")) + field + " | " + (lang === "en" ? "Prior fasting: " : (lang === "ca" ? "Dejuni previ: " : "Ayuno previo: ")) + txtFasting);
+
             let seqs = [];
-            if (document.getElementById("seq-t2").checked) seqs.push("T2WI no-FS (axial/coronal)");
-            if (document.getElementById("seq-t1").checked) seqs.push("T1WI fase/opuesta");
-            if (document.getElementById("seq-mrcp").checked) seqs.push("Colangio-RM 2D/3D (MRCP)");
-            if (document.getElementById("seq-dwi").checked) seqs.push("DWI (b-bajo y b-alto)");
-            if (document.getElementById("seq-dyn").checked) seqs.push("T1 dinámico con cte");
-            if (document.getElementById("seq-hba").checked) seqs.push("Fase Hepatobiliar HBA (ácido gadoxético)");
-            r += ` - Secuencias: ${seqs.join(", ")}
+            if (document.getElementById("seq-t2")?.checked) seqs.push(lang === "en" ? "T2WI non-FS (axial/coronal)" : "T2WI no-FS (axial/coronal)");
+            if (document.getElementById("seq-t1")?.checked) seqs.push(lang === "en" ? "T1WI In/Out phase" : (lang === "ca" ? "T1WI En/Fora fase" : "T1WI fase/opuesta"));
+            if (document.getElementById("seq-mrcp")?.checked) seqs.push(lang === "en" ? "MRCP 2D/3D" : (lang === "ca" ? "Colàngio-RM 2D/3D (MRCP)" : "Colangio-RM 2D/3D (MRCP)"));
+            if (document.getElementById("seq-dwi")?.checked) seqs.push(lang === "en" ? "DWI (low & high b-values)" : (lang === "ca" ? "DWI (b-baix i b-alt)" : "DWI (b-bajo y b-alto)"));
+            if (document.getElementById("seq-dyn")?.checked) seqs.push(lang === "en" ? "Dynamic T1 with IV contrast" : (lang === "ca" ? "T1 dinàmic amb contrast IV" : "T1 dinámico con cte"));
+            if (document.getElementById("seq-hba")?.checked) seqs.push(lang === "en" ? "HBA hepatobiliary phase (gadoxetic acid)" : (lang === "ca" ? "Fase Hepatobiliar HBA (gadoxètic)" : "Fase Hepatobiliar HBA (gadoxético)"));
+            lines.push(" - " + (lang === "en" ? "Acquired sequences: " : (lang === "ca" ? "Seqüències adquirides: " : "Secuencias adquiridas: ")) + seqs.join(", ") + "\n");
 
-`;
-
-            // 1. VIA BILIAR
-            r += `${t.secBiliary}
-`;
+            // 1. Vía biliar
+            lines.push(t.repBiliaryTitle + ":");
             const strict = document.querySelector('input[name="strictures"]:checked')?.value;
             if (strict === "absent") {
-                r += " - Estenosis biliares: AUSENTES.
-";
+                lines.push(" - " + (lang === "en" ? "Biliary strictures: ABSENT." : (lang === "ca" ? "Estenosis biliars: ABSENTS." : "Estenosis biliares: AUSENTES.")));
             } else {
-                const sNum = document.querySelector('input[name="strict-num"]:checked')?.value === "single" ? "Única" : "Múltiples";
+                const sNumVal = document.querySelector('input[name="strict-num"]:checked')?.value === "single";
+                const sNum = lang === "en" ? (sNumVal ? "Single" : "Multiple") : (lang === "ca" ? (sNumVal ? "Única" : "Múltiples") : (sNumVal ? "Única" : "Múltiples"));
                 const sLocVal = document.querySelector('input[name="strict-loc"]:checked')?.value;
-                const sLoc = sLocVal === "intra" ? "Intrahepática" : sLocVal === "extra" ? "Extrahepática" : "Intra y extrahepática";
+                const sLoc = lang === "en" ? (sLocVal === "intra" ? "Intra-hepatic" : sLocVal === "extra" ? "Extra-hepatic" : "Both intra- and extra-hepatic") : (lang === "ca" ? (sLocVal === "intra" ? "Intrahepàtica" : sLocVal === "extra" ? "Extrahepàtica" : "Intra i extrahepàtica") : (sLocVal === "intra" ? "Intrahepática" : sLocVal === "extra" ? "Extrahepática" : "Intra y extrahepática"));
                 const sGradeVal = document.querySelector('input[name="strict-grade"]:checked')?.value;
-                const sGrade = sGradeVal === "high" ? "ALTO GRADO (≥ 75%) [Estenosis relevante / dominante]" : "Bajo grado (< 75%)";
-                r += ` - Estenosis biliares: PRESENTES (${sNum}, localización ${sLoc}, ${sGrade}).
-`;
-                const sLong = document.getElementById("strict-longest").value;
-                if (sLong) r += `   * Longitud de estenosis más larga: ${sLong} mm.
-`;
-                const sSev = document.getElementById("strict-severe").value;
-                if (sSev) r += `   * Longitud de estenosis más severa: ${sSev} mm.
-`;
+                const sGrade = sGradeVal === "high" ? 
+                    (lang === "en" ? "HIGH-GRADE (≥ 75%) [Dominant / Significant stricture]" : (lang === "ca" ? "ALT GRAU (≥ 75%) [Estenosi dominant rellevant]" : "ALTO GRADO (≥ 75%) [Estenosis dominante / relevante]")) :
+                    (lang === "en" ? "Low-grade (< 75%)" : (lang === "ca" ? "Baix grau (< 75%)" : "Bajo grado (< 75%)"));
+                lines.push(" - " + (lang === "en" ? "Biliary strictures: PRESENT (" : (lang === "ca" ? "Estenosis biliars: PRESENTS (" : "Estenosis biliares: PRESENTES (")) + sNum + ", " + sLoc + ", " + sGrade + ").");
+                const sLong = document.getElementById("strict-longest")?.value;
+                if (sLong) lines.push("   * " + (lang === "en" ? "Length of longest stricture: " : (lang === "ca" ? "Longitud de l'estenosi més llarga: " : "Longitud de estenosis más larga: ")) + sLong + " mm.");
+                const sSev = document.getElementById("strict-severe")?.value;
+                if (sSev) lines.push("   * " + (lang === "en" ? "Length of most severe stricture: " : (lang === "ca" ? "Longitud de l'estenosi més severa: " : "Longitud de estenosis más severa: ")) + sSev + " mm.");
             }
 
             const dil = document.querySelector('input[name="dilations"]:checked')?.value;
             if (dil === "absent") {
-                r += " - Dilatación biliar: AUSENTE.
-";
+                lines.push(" - " + (lang === "en" ? "Biliary dilation: ABSENT." : (lang === "ca" ? "Dilatació biliar: ABSENT." : "Dilatación biliar: AUSENTE.")));
             } else {
-                const dilCal = document.getElementById("dil-max-caliber").value;
+                const dilCal = document.getElementById("dil-max-caliber")?.value;
                 const dSiteVal = document.querySelector('input[name="dil-site"]:checked')?.value;
-                const dSite = dSiteVal === "intra" ? "intrahepática segmentaria" : dSiteVal === "diffuse" ? "difusa intrahepática" : "vía biliar principal";
-                r += ` - Dilatación biliar: PRESENTE (${dSite}${dilCal ? `, calibre máx: ${dilCal} mm` : ""}).
-`;
+                const dSite = lang === "en" ? (dSiteVal === "intra" ? "intrahepatic focal/segmental" : dSiteVal === "diffuse" ? "diffuse intrahepatic" : "common bile duct") : (lang === "ca" ? (dSiteVal === "intra" ? "intrahepàtica focal/segmentària" : dSiteVal === "diffuse" ? "difusa intrahepàtica" : "via biliar principal") : (dSiteVal === "intra" ? "intrahepática focal/segmentaria" : dSiteVal === "diffuse" ? "difusa intrahepática" : "vía biliar principal"));
+                lines.push(" - " + (lang === "en" ? "Biliary dilation: PRESENT (" : (lang === "ca" ? "Dilatació biliar: PRESENT (" : "Dilatación biliar: PRESENTE (")) + dSite + (dilCal ? (", " + (lang === "en" ? "max caliber: " : (lang === "ca" ? "calibre màx: " : "calibre máx: ")) + dilCal + " mm") : "") + ").");
             }
 
             const thick = document.querySelector('input[name="thickening"]:checked')?.value === "yes";
-            r += ` - Engrosamiento parietal ductal (> 2 mm): ${thick ? "SÍ (Patológico, sugerente de inflamación/colangitis)" : "NO (≤ 2 mm, normal)"}.
+            lines.push(" - " + (lang === "en" ? "Bile duct wall thickening (> 2 mm): " : (lang === "ca" ? "Engruiximent parietal ductal (> 2 mm): " : "Engrosamiento parietal ductal (> 2 mm): ")) + (thick ? (lang === "en" ? "YES (Pathologic, suggestive of active cholangitis)" : (lang === "ca" ? "SÍ (Patològic, suggerent d'inflamació/colangitis activa)" : "SÍ (Patológico, sugerente de inflamación/colangitis activa)")) : (lang === "en" ? "NO (≤ 2 mm, normal)" : (lang === "ca" ? "NO (≤ 2 mm, normal)" : "NO (≤ 2 mm, normal)"))) + ".\n");
 
-`;
-
-            // 2. VESICULA Y LITIASIS
-            r += `${t.secGb}
-`;
+            // 2. Vesícula y litiasis
+            lines.push(t.repGbTitle + ":");
             const gbPres = document.querySelector('input[name="gb-presence"]:checked')?.value === "yes";
             if (!gbPres) {
-                r += " - Vesícula biliar: AUSENTE quirúrgicamente (Colecistectomía previa).
-";
+                lines.push(" - " + (lang === "en" ? "Gallbladder: SURGICALLY ABSENT (Prior cholecystectomy)." : (lang === "ca" ? "Vesícula biliar: QUIRÚRGICAMENT ABSENT (Colecistectomia prèvia)." : "Vesícula biliar: AUSENTE quirúrgicamente (Colecistectomía previa).")));
             } else {
-                r += " - Vesícula biliar: Presente.
-";
+                lines.push(" - " + (lang === "en" ? "Gallbladder: Present." : (lang === "ca" ? "Vesícula biliar: Present." : "Vesícula biliar: Presente.")));
                 const gbWall = document.querySelector('input[name="gb-wall"]:checked')?.value === "yes";
-                r += `   * Alteraciones parietales: ${gbWall ? "SÍ (engrosamiento/edema)" : "No"}.
-`;
+                lines.push("   * " + (lang === "en" ? "Wall abnormalities: " : (lang === "ca" ? "Alteracions parietals: " : "Alteraciones parietales: ")) + (gbWall ? (lang === "en" ? "YES (thickening/edema)" : (lang === "ca" ? "SÍ (engruiximent/èdema)" : "SÍ (engrosamiento/edema)")) : (lang === "en" ? "No" : "No")) + ".");
                 const gbLith = document.querySelector('input[name="gb-lith"]:checked')?.value === "yes";
-                r += `   * Colelitiasis: ${gbLith ? "SÍ" : "No"}.
-`;
+                lines.push("   * " + (lang === "en" ? "Cholelithiasis: " : (lang === "ca" ? "Colelitiasi: " : "Colelitiasis: ")) + (gbLith ? (lang === "en" ? "Yes" : "Sí") : "No") + ".");
                 const cystIrreg = document.querySelector('input[name="cystic-irreg"]:checked')?.value === "yes";
-                r += `   * Irregularidades en conducto cístico: ${cystIrreg ? "SÍ" : "No"}.
-`;
+                lines.push("   * " + (lang === "en" ? "Cystic duct irregularities: " : (lang === "ca" ? "Irregularitats conducte cístic: " : "Irregularidades conducto cístico: ")) + (cystIrreg ? (lang === "en" ? "Yes" : "Sí") : "No") + ".");
             }
 
             const treeLith = document.querySelector('input[name="tree-lith"]:checked')?.value === "yes";
             if (!treeLith) {
-                r += " - Litiasis en árbol biliar: NO identificada.
-
-";
+                lines.push(" - " + (lang === "en" ? "Biliary tree lithiasis: NOT DETECTED." : (lang === "ca" ? "Litiasi a l'arbre biliar: NO identificada." : "Litiasis en árbol biliar: NO identificada.")) + "\n");
             } else {
                 const tlLocVal = document.querySelector('input[name="treelith-loc"]:checked')?.value;
-                const tlLoc = tlLocVal === "intra" ? "intrahepática" : tlLocVal === "extra" ? "extrahepática (coledocolitiasis)" : "intra y extrahepática";
-                r += ` - Litiasis en árbol biliar: SÍ (localización ${tlLoc}).
-
-`;
+                const tlLoc = lang === "en" ? (tlLocVal === "intra" ? "intrahepatic" : tlLocVal === "extra" ? "extrahepatic (choledocholithiasis)" : "both intra- and extrahepatic") : (lang === "ca" ? (tlLocVal === "intra" ? "intrahepàtica" : tlLocVal === "extra" ? "extrahepàtica (coledocolitiasi)" : "intra i extrahepàtica") : (tlLocVal === "intra" ? "intrahepática" : tlLocVal === "extra" ? "extrahepática (coledocolitiasis)" : "intra y extrahepática"));
+                lines.push(" - " + (lang === "en" ? "Biliary tree lithiasis: YES (" : (lang === "ca" ? "Litiasi a l'arbre biliar: SÍ (" : "Litiasis en árbol biliar: SÍ (")) + tlLoc + ").\n");
             }
 
-            // 3. PARÉNQUIMA HEPÁTICO
-            r += `${t.secLiver}
-`;
+            // 3. Parénquima hepático
+            lines.push(t.repLiverTitle + ":");
             const morph = document.querySelector('input[name="morphology"]:checked')?.value === "abnormal";
-            r += ` - Morfología: ${morph ? "ALTERADA (Dismorfia con atrofia de segmentos periféricos y/o hipertrofia de lóbulo caudado)" : "Conservada / Normal"}.
-`;
+            lines.push(" - " + (lang === "en" ? "Morphology: " : (lang === "ca" ? "Morfologia: " : "Morfología: ")) + (morph ? (lang === "en" ? "ABNORMAL (Dysmorphic liver: peripheral atrophy and/or caudate hypertrophy)" : (lang === "ca" ? "ALTERADA (Dismòrfia amb atròfia de segments perifèrics i/o hipertròfia de lòbul caudat)" : "ALTERADA (Dismorfia con atrofia de segmentos periféricos y/o hipertrofia de lóbulo caudado)")) : (lang === "en" ? "Normal / Preserved" : "Conservada / Normal")) + ".");
             const margins = document.querySelector('input[name="margins"]:checked')?.value === "irregular";
-            r += ` - Contornos: ${margins ? "Irregulares / nodulares" : "Lisos y regulares"}.
-`;
+            lines.push(" - " + (lang === "en" ? "Margins: " : (lang === "ca" ? "Contorns: " : "Contornos: ")) + (margins ? (lang === "en" ? "Irregular / nodular" : (lang === "ca" ? "Irregulars / lobulats" : "Irregulares / nodulares")) : (lang === "en" ? "Smooth" : (lang === "ca" ? "Llisos i regulars" : "Lisos y regulares"))) + ".");
             const steat = document.querySelector('input[name="steatosis"]:checked')?.value === "yes";
-            r += ` - Esteatosis: ${steat ? "Presente" : "No identificada"}.
-`;
+            lines.push(" - " + (lang === "en" ? "Steatosis: " : (lang === "ca" ? "Esteatosi: " : "Esteatosis: ")) + (steat ? (lang === "en" ? "Present" : "Presente") : (lang === "en" ? "None detected" : "No identificada")) + ".");
             const fib = document.querySelector('input[name="fibrosis"]:checked')?.value === "yes";
-            r += ` - Fibrosis confluente: ${fib ? "SÍ (áreas de señal intermedia en T2 con hipointensidad portal/tardía)" : "No identificada"}.
-`;
+            lines.push(" - " + (lang === "en" ? "Confluent fibrosis: " : (lang === "ca" ? "Fibrosi confluent: " : "Fibrosis confluente: ")) + (fib ? (lang === "en" ? "YES (intermediate T2, late portal/delayed hypointensity)" : (lang === "ca" ? "SÍ (senyal intermèdia T2, hipointensitat portal/tardana)" : "SÍ (señal intermedia T2, hipointensidad portal/tardía)")) : (lang === "en" ? "No" : "No identificada")) + ".");
             const edema = document.querySelector('input[name="edema"]:checked')?.value === "yes";
-            r += ` - Edema periductal / inflamación activa: ${edema ? "SÍ (hiperintensidad T2 peribiliar)" : "No"}.
-`;
+            lines.push(" - " + (lang === "en" ? "Periductal edema / active inflammation: " : (lang === "ca" ? "Èdema periductal / inflamació activa: " : "Edema periductal / inflamación activa: ")) + (edema ? (lang === "en" ? "YES (peribiliary T2 hyperintensity)" : (lang === "ca" ? "SÍ (hiperintensitat T2 peribiliar)" : "SÍ (hiperintensidad T2 peribiliar)")) : "No") + ".");
             const nodules = document.querySelector('input[name="reg-nodules"]:checked')?.value === "yes";
-            r += ` - Nódulos regenerativos macronodulares (> 3 mm): ${nodules ? "PRESENTES" : "No identificados"}.
-`;
+            lines.push(" - " + (lang === "en" ? "Regenerative macronodules (> 3 mm): " : (lang === "ca" ? "Nòduls regeneratius (> 3 mm): " : "Nódulos regenerativos (> 3 mm): ")) + (nodules ? (lang === "en" ? "PRESENT" : "PRESENTES") : (lang === "en" ? "None detected" : (lang === "ca" ? "No identificats" : "No identificados"))) + ".");
 
-            const artPh = document.querySelector('input[name="art-phase"]:checked')?.value === "inhomogeneous" ? "Heterogéneo" : "Homogéneo";
-            const pvPh = document.querySelector('input[name="pv-phase"]:checked')?.value === "inhomogeneous" ? "Heterogéneo" : "Homogéneo";
-            r += ` - Realce dinámico: Fase arterial ${artPh} | Fase portal ${pvPh}.
-`;
-            if (document.getElementById("seq-hba").checked) {
-                const hbaPh = document.querySelector('input[name="hba-phase"]:checked')?.value === "inhomogeneous" ? "Heterogénea (captación/excreción parcheada)" : "Homogénea";
-                r += ` - Fase Hepatobiliar HBA: Excreción ${hbaPh}.
-`;
+            const artPhVal = document.querySelector('input[name="art-phase"]:checked')?.value;
+            const artPh = artPhVal === "inhomogeneous" ? (lang === "en" ? "Inhomogeneous" : (lang === "ca" ? "Heterogeni" : "Heterogéneo")) : (lang === "en" ? "Homogeneous" : (lang === "ca" ? "Homogeni" : "Homogéneo"));
+            const pvPhVal = document.querySelector('input[name="pv-phase"]:checked')?.value;
+            const pvPh = pvPhVal === "inhomogeneous" ? (lang === "en" ? "Inhomogeneous" : (lang === "ca" ? "Heterogeni" : "Heterogéneo")) : (lang === "en" ? "Homogeneous" : (lang === "ca" ? "Homogeni" : "Homogéneo"));
+            lines.push(" - " + (lang === "en" ? "Dynamic IV contrast: Arterial phase " : (lang === "ca" ? "Realçament dinàmic: Fase arterial " : "Realce dinámico: Fase arterial ")) + artPh + " | " + (lang === "en" ? "Portal phase " : (lang === "ca" ? "Fase portal " : "Fase portal ")) + pvPh + ".");
+            if (document.getElementById("seq-hba")?.checked) {
+                const hbaPhVal = document.querySelector('input[name="hba-phase"]:checked')?.value;
+                const hbaPh = hbaPhVal === "inhomogeneous" ? (lang === "en" ? "Inhomogeneous excretion" : (lang === "ca" ? "Heterogènia (captació clapejada)" : "Heterogénea (captación parcheada)")) : (lang === "en" ? "Homogeneous excretion" : (lang === "ca" ? "Homogènia" : "Homogénea"));
+                lines.push(" - " + (lang === "en" ? "HBA hepatobiliary phase: " : (lang === "ca" ? "Fase Hepatobiliar HBA: " : "Fase Hepatobiliar HBA: ")) + hbaPh + ".");
             }
 
             const focal = document.querySelector('input[name="focal-lesion"]:checked')?.value === "yes";
             if (!focal) {
-                r += " - Lesiones focales hepáticas: NO se aprecian lesiones focales sospechosas.
-";
+                lines.push(" - " + (lang === "en" ? "Focal liver lesions: NO suspicious lesions identified." : (lang === "ca" ? "Lesions focals hepàtiques: NO s'identifiquen lesions sospitoses." : "Lesiones focales hepáticas: NO se aprecian lesiones focales sospechosas.")));
             } else {
                 const natVal = document.querySelector('input[name="focal-nature"]:checked')?.value;
-                const nat = natVal === "benign" ? "Benigna" : "SOSPECHOSA DE MALIGNIDAD (Colangiocarcinoma / CHC)";
-                const desc = document.getElementById("focal-desc").value;
-                r += ` - Lesión focal hepática: PRESENTE (${nat}${desc ? `: ${desc}` : ""}).
-`;
+                const nat = natVal === "benign" ? (lang === "en" ? "Benign" : (lang === "ca" ? "Benigna" : "Benigna")) : (lang === "en" ? "SUSPICIOUS FOR MALIGNANCY (Cholangiocarcinoma / HCC)" : (lang === "ca" ? "SOSPITOSA DE MALIGNITAT (Colangiocarcinoma / CHC)" : "SOSPECHOSA DE MALIGNIDAD (Colangiocarcinoma / CHC)"));
+                const desc = document.getElementById("focal-desc")?.value;
+                lines.push(" - " + (lang === "en" ? "Focal liver lesion: PRESENT (" : (lang === "ca" ? "Lesió focal hepàtica: PRESENT (" : "Lesión focal hepática: PRESENTE (")) + nat + (desc ? (": " + desc) : "") + ").");
             }
 
             let htpItems = [];
-            if (document.getElementById("htp-collaterals").checked) htpItems.push("circulación colateral porto-sistémica");
-            if (document.getElementById("htp-splenomegaly").checked) htpItems.push("esplenomegalia");
-            if (document.getElementById("htp-ascites").checked) htpItems.push("ascitis");
-            r += ` - Signos de hipertensión portal: ${htpItems.length > 0 ? "PRESENTES (" + htpItems.join(", ") + ")" : "Ausentes"}.
-`;
+            if (document.getElementById("htp-collaterals")?.checked) htpItems.push(lang === "en" ? "portosystemic collaterals" : (lang === "ca" ? "col·laterals portosistèmiques" : "colaterales venosas porto-sistémicas"));
+            if (document.getElementById("htp-splenomegaly")?.checked) htpItems.push(lang === "en" ? "splenomegaly" : (lang === "ca" ? "esplenomegàlia" : "esplenomegalia"));
+            if (document.getElementById("htp-ascites")?.checked) htpItems.push(lang === "en" ? "ascites" : (lang === "ca" ? "ascites" : "ascitis"));
+            lines.push(" - " + (lang === "en" ? "Signs of portal hypertension / decompensation: " : (lang === "ca" ? "Signes d'hipertensió portal / descompensació: " : "Signos de hipertensión portal / descompensación: ")) + (htpItems.length > 0 ? ((lang === "en" ? "PRESENT (" : (lang === "ca" ? "PRESENTS (" : "PRESENTES (")) + htpItems.join(", ") + ")") : (lang === "en" ? "None" : (lang === "ca" ? "Absents" : "Ausentes"))) + ".");
             const nodes = document.querySelector('input[name="nodes"]:checked')?.value === "yes";
-            r += ` - Adenopatías perihepáticas aumentadas: ${nodes ? "SÍ (> 10 mm)" : "No significativas"}.
+            lines.push(" - " + (lang === "en" ? "Perihepatic enlarged lymph nodes (> 10 mm): " : (lang === "ca" ? "Adenopaties perihepàtiques augmentades (> 10 mm): " : "Adenopatías perihepáticas aumentadas (> 10 mm): ")) + (nodes ? (lang === "en" ? "YES" : "SÍ") : "No") + ".\n");
 
-`;
+            // 4. Bazo
+            lines.push(t.repSpleenTitle + ":");
+            const splSize = document.getElementById("spleen-size")?.value;
+            lines.push(" - " + (lang === "en" ? "Splenic bipolar diameter: " : (lang === "ca" ? "Longitud bipolar esplènica: " : "Longitud bipolar esplénica: ")) + (splSize ? (splSize + " cm") : (lang === "en" ? "Not measured" : (lang === "ca" ? "No mesurada" : "No medida"))) + (splSize && parseFloat(splSize) > 12 ? (lang === "en" ? " (Splenomegaly)" : (lang === "ca" ? " (Esplenomegàlia)" : " (Esplenomegalia)")) : "") + ".\n");
 
-            // 4. BAZO
-            r += `${t.secSpleen}
-`;
-            const splSize = document.getElementById("spleen-size").value;
-            r += ` - Longitud bipolar esplénica: ${splSize ? splSize + " cm" : "No medida"}${splSize && parseFloat(splSize) > 12 ? " (Esplenomegalia)" : ""}.
-
-`;
-
-            // 5. PANCREAS
-            r += `${t.secPancreas}
-`;
+            // 5. Páncreas
+            lines.push(t.repPancreasTitle + ":");
             const aip = document.querySelector('input[name="aip"]:checked')?.value;
-            r += ` - Afectación sugerente de Pancreatitis Autoinmune / IgG4: ${aip === "rule-in" ? "SOSPECHA (Rule-in: considerar determinación IgG4 y correlación clínica)" : "Descartada (Rule-out)"}.
-`;
+            lines.push(" - " + (lang === "en" ? "Autoimmune Pancreatitis (AIP) / IgG4 suspicion: " : (lang === "ca" ? "Afectació suggerent de Pancreatitis Autoimmune / IgG4: " : "Afectación sugerente de Pancreatitis Autoinmune / IgG4: ")) + (aip === "rule-in" ? (lang === "en" ? "RULE-IN (Consider IgG4 serology and clinical correlation)" : (lang === "ca" ? "SOSPITA (Rule-in: considerar determinació IgG4 i correlació clínica)" : "SOSPECHA (Rule-in: considerar determinación IgG4 y correlación clínica)")) : (lang === "en" ? "RULE-OUT (Unremarkable)" : (lang === "ca" ? "Descartada (Rule-out)" : "Descartada (Rule-out)"))) + ".");
             const mpd = document.querySelector('input[name="mpd"]:checked')?.value === "yes";
             if (!mpd) {
-                r += " - Conducto de Wirsung: Calibre normal, sin dilatación.
-
-";
+                lines.push(" - " + (lang === "en" ? "Main pancreatic duct (MPD): Normal caliber, no dilation." : (lang === "ca" ? "Conducte de Wirsung: Calibre normal, sense dilatació." : "Conducto de Wirsung: Calibre normal, sin dilatación.")) + "\n");
             } else {
-                const mpdCal = document.getElementById("mpd-caliber").value;
-                r += ` - Conducto de Wirsung: DILATADO${mpdCal ? ` (${mpdCal} mm)` : ""}.
-
-`;
+                const mpdCal = document.getElementById("mpd-caliber")?.value;
+                lines.push(" - " + (lang === "en" ? "Main pancreatic duct (MPD): DILATED" : (lang === "ca" ? "Conducte de Wirsung: DILATAT" : "Conducto de Wirsung: DILATADO")) + (mpdCal ? (" (" + mpdCal + " mm)") : "") + ".\n");
             }
 
-            // 6. SCORES
-            r += `${t.secScores}
-`;
-            r += ` - ANALI Score (sin Gd): ${anali.scoreNoGd} / 3 puntos [${anali.scoreNoGd <= 1 ? "Riesgo Bajo / Buen pronóstico a 4 años" : "Riesgo Alto / Mayor probabilidad de progresión"}]
-`;
-            r += ` - ANALI Score (con Gd): ${anali.scoreGd} / 5 puntos [${anali.scoreGd <= 1 ? "Riesgo Bajo" : anali.scoreGd <= 3 ? "Riesgo Intermedio" : "Riesgo Alto"}]
-`;
-            r += `   (Nota de consenso ESGAR: Los scores radiológicos deben valorarse con precaución debido a variabilidad interobservador, integrándolos con elastografía y parámetros de colestasis).
+            // 6. Scores
+            lines.push(t.repScoresTitle + ":");
+            const txtRiskNoGd = anali.scoreNoGd <= 1 ? (lang === "en" ? "Low Risk / Favorable 4-year outcome" : (lang === "ca" ? "Risc Baix / Bon pronòstic a 4 anys" : "Riesgo Bajo / Buen pronóstico a 4 años")) : (lang === "en" ? "High Risk / Increased progression risk" : (lang === "ca" ? "Risc Alt / Major probabilitat de progressió" : "Riesgo Alto / Mayor probabilidad de progresión"));
+            lines.push(" - ANALI Score (without Gd): " + anali.scoreNoGd + " / 3 [" + txtRiskNoGd + "]");
+            const txtRiskGd = anali.scoreGd <= 1 ? (lang === "en" ? "Low Risk" : (lang === "ca" ? "Risc Baix" : "Riesgo Bajo")) : (anali.scoreGd <= 3 ? (lang === "en" ? "Intermediate Risk" : (lang === "ca" ? "Risc Intermedi" : "Riesgo Intermedio")) : (lang === "en" ? "High Risk" : (lang === "ca" ? "Risc Alt" : "Riesgo Alto")));
+            lines.push(" - ANALI Score (with Gd): " + anali.scoreGd + " / 5 [" + txtRiskGd + "]");
+            lines.push("   (" + (lang === "en" ? "ESGAR consensus caveat: Radiological risk scores must be interpreted with caution due to inter-observer variability, integrating them with elastography and cholestatic biochemical profiles" : (lang === "ca" ? "Nota de consens ESGAR: Els scores radiològics s'han de valorar amb prudència degut a la variabilitat interobservador, integrant-los amb elastografia i perfils de colèstasi" : "Nota de consenso ESGAR: Los scores radiológicos deben valorarse con precaución debido a variabilidad interobservador, integrándolos con elastografía y parámetros de colestasis")) + ").\n");
 
-`;
-
-            // 7. CONCLUSION
-            r += `${t.secConclusion}
-`;
-            let concList = [];
+            // 7. Conclusión
+            lines.push(t.repConclusionTitle + ":");
             if (strict === "present") {
                 const sGradeVal = document.querySelector('input[name="strict-grade"]:checked')?.value;
                 if (sGradeVal === "high") {
-                    concList.push("1. Hallazgos compatibles con Colangitis Esclerosante Primaria (CEP) con ESTENOSIS BILIAR DE ALTO GRADO / DOMINANTE. Se recomienda correlación con CA 19-9, cepillado citológico endoscópico y seguimiento estrecho.");
+                    lines.push("1. " + (lang === "en" ? "Findings compatible with Primary Sclerosing Cholangitis (PSC) with HIGH-GRADE / DOMINANT BILIARY STRICTURE. Correlation with CA 19-9, endoscopic brush cytology, and close multidisciplinary follow-up are recommended." : (lang === "ca" ? "Troballes compatibles amb Colangitis Esclerosant Primària (CEP) amb ESTENOSI BILIAR D'ALT GRAU / DOMINANT. Es recomana correlació amb CA 19-9, raspallat citològic endoscòpic i seguiment estret." : "Hallazgos compatibles con Colangitis Esclerosante Primaria (CEP) con ESTENOSIS BILIAR DE ALTO GRADO / DOMINANTE. Se recomienda correlación con CA 19-9, cepillado citológico endoscópico y seguimiento estrecho.")));
                 } else {
-                    concList.push("1. Hallazgos de colangiopatía estenosante compatibles con Colangitis Esclerosante Primaria (CEP) de bajo grado.");
+                    lines.push("1. " + (lang === "en" ? "Findings of stenosing cholangiopathy compatible with Primary Sclerosing Cholangitis (PSC) without high-grade dominant strictures." : (lang === "ca" ? "Troballes de colangiopatia estenosant compatibles amb Colangitis Esclerosant Primària (CEP) de baix grau sense estenosis dominants definides." : "Hallazgos de colangiopatía estenosante compatibles con Colangitis Esclerosante Primaria (CEP) de bajo grado.")));
                 }
             } else {
-                concList.push("1. No se identifican estenosis biliares definidas en el estudio actual.");
+                lines.push("1. " + (lang === "en" ? "No definite biliary strictures identified on current exam." : (lang === "ca" ? "No s'identifiquen estenosis biliars definides a l'estudi actual." : "No se identifican estenosis biliares definidas en el estudio actual.")));
             }
 
             if (focal && document.querySelector('input[name="focal-nature"]:checked')?.value === "malignant") {
-                concList.push("2. ALERTA: Lesión focal hepática con criterios de sospecha neoplásica (posible colangiocarcinoma / hepatocarcinoma). Se recomienda estudio específico y comité multidisciplinar.");
+                lines.push("2. " + (lang === "en" ? "ALERT: Focal liver lesion with features suspicious for malignancy (possible cholangiocarcinoma / HCC). Multidisciplinary assessment recommended." : (lang === "ca" ? "ALERTA: Lesió focal hepàtica amb criteris de sospita neoplàsica (possible colangiocarcinoma / hepatocarcinoma). Es recomana comitè multidisciplinar." : "ALERTA: Lesión focal hepática con criterios de sospecha neoplásica (posible colangiocarcinoma / hepatocarcinoma). Se recomienda estudio específico y comité multidisciplinar.")));
             }
 
             if (htpItems.length > 0 || morph) {
-                concList.push("3. Signos de remodelado hepático / cirrosis y signos radiológicos de hipertensión portal.");
+                lines.push("3. " + (lang === "en" ? "Signs of advanced liver remodeling / cirrhosis and radiological features of portal hypertension." : (lang === "ca" ? "Signes de remodelat hepàtic / cirrosi i signes radiològics d'hipertensió portal." : "Signos de remodelado hepático / cirrosis y signos radiológicos de hipertensión portal.")));
             }
 
-            concList.push("4. Recomendación de seguimiento ESGAR: Vigilancia anual con Colangio-RM + RM con contraste IV, asociada a determinación de CA 19-9.");
+            lines.push("4. " + (lang === "en" ? "ESGAR surveillance recommendation: Annual follow-up with MRCP + contrast-enhanced liver MRI, combined with serum CA 19-9 monitoring." : (lang === "ca" ? "Recomanació de vigilància ESGAR: Seguiment anual amb Colangio-RM + RM amb contrast IV, associada a monitorització de CA 19-9 sèric." : "Recomendación de seguimiento ESGAR: Vigilancia anual con Colangio-RM + RM con contraste IV, asociada a determinación de CA 19-9.")));
 
-            r += concList.join("
-") + "
-
-";
-
-            // OBSERVACIONES
-            const notes = document.getElementById("free-notes").value;
-            if (notes.trim()) {
-                r += `${t.secNotes}
-${notes.trim()}
-
-`;
+            const notes = document.getElementById("free-notes")?.value;
+            if (notes && notes.trim()) {
+                lines.push("\n" + t.repNotesTitle + ":\n" + notes.trim());
             }
 
-            r += "========================================================================
-";
-            r += "Informe estructurado generado con el módulo ESGAR 2025 PSC v1.0
-";
-            r += "Oriol Busquets & Guillem Casamayor - Consenso Europeo ESGAR
-";
-            r += "========================================================================";
+            lines.push("\n========================================================================");
+            lines.push(lang === "en" ? "Structured report generated with ESGAR 2025 PSC Module v1.1" : (lang === "ca" ? "Informe estructurat generat amb el mòdul ESGAR 2025 CEP v1.1" : "Informe estructurado generado con el módulo ESGAR 2025 PSC v1.1"));
+            lines.push("Oriol Busquets & Guillem Casamayor - Consenso Europeo ESGAR");
+            lines.push("========================================================================");
 
-            document.getElementById("report-output").value = r;
+            const outEl = document.getElementById("report-output");
+            if (outEl) {
+                outEl.value = lines.join("\n");
+            }
         }
 
+        // Action Handlers
         function copyReport() {
-            const text = document.getElementById("report-output").value;
-            navigator.clipboard.writeText(text).then(() => {
-                showToast();
-            }).catch(err => {
-                const textarea = document.getElementById("report-output");
-                textarea.select();
-                document.execCommand("copy");
-                showToast();
-            });
+            const text = document.getElementById("report-output")?.value;
+            if (!text) return;
+            const lang = document.getElementById("lang-selector")?.value || "es";
+            const toastMsg = translations[lang]?.toast || "Informe copiado al portapapeles";
+
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(text).then(() => {
+                    showToast(toastMsg);
+                }).catch(() => {
+                    fallbackCopy(text, toastMsg);
+                });
+            } else {
+                fallbackCopy(text, toastMsg);
+            }
         }
 
-        function showToast() {
-            const toast = document.getElementById("toast");
-            const lang = document.getElementById("lang-selector").value;
-            toast.innerText = translations[lang].toastCopied;
-            toast.className = "show";
-            setTimeout(() => { toast.className = toast.className.replace("show", ""); }, 2500);
+        function fallbackCopy(text, msg) {
+            const textarea = document.getElementById("report-output");
+            if (textarea) {
+                textarea.select();
+                try {
+                    document.execCommand("copy");
+                    showToast(msg);
+                } catch (e) {
+                    alert("Error al copiar");
+                }
+            }
         }
 
         function downloadReport() {
-            const text = document.getElementById("report-output").value;
+            const text = document.getElementById("report-output")?.value;
+            if (!text) return;
             const blob = new Blob([text], { type: "text/plain;charset=utf-8" });
             const url = URL.createObjectURL(blob);
             const a = document.createElement("a");
+            const dateStr = new Date().toISOString().slice(0, 10);
             a.href = url;
-            a.download = `Informe_RM_CEP_ESGAR_${new Date().toISOString().slice(0,10)}.txt`;
+            a.download = "informe_rm_cep_esgar_" + dateStr + ".txt";
             document.body.appendChild(a);
             a.click();
             document.body.removeChild(a);
             URL.revokeObjectURL(url);
         }
 
-        function resetForm() {
-            if (confirm("¿Deseas reiniciar todos los campos del formulario?")) {
-                location.reload();
+        function showToast(msg) {
+            const toast = document.getElementById("toast");
+            if (toast) {
+                toast.innerText = msg;
+                toast.classList.add("show");
+                setTimeout(() => {
+                    toast.classList.remove("show");
+                }, 2200);
             }
         }
 
-        // Inicializar al cargar
+        function resetForm() {
+            const form = document.getElementById("psc-form");
+            if (form) form.reset();
+            const notes = document.getElementById("free-notes");
+            if (notes) notes.value = "";
+            onStricturesChange();
+            onDilationsChange();
+            onGbPresenceChange();
+            onTreeLithChange();
+            onFocalLesionChange();
+            onMpdChange();
+            onHbaSeqChange();
+            onSpleenSizeChange();
+            updateReport();
+        }
+
+        // Initialize App
+        document.addEventListener("DOMContentLoaded", function() {
+            // Restore theme from localStorage
+            try {
+                const savedTheme = localStorage.getItem("esgar_psc_theme");
+                if (savedTheme === "dark" || savedTheme === "light") {
+                    document.documentElement.setAttribute("data-theme", savedTheme);
+                    document.body.setAttribute("data-theme", savedTheme);
+                }
+            } catch (e) {}
+
+            // Restore language from localStorage
+            try {
+                const savedLang = localStorage.getItem("esgar_psc_lang");
+                if (savedLang && translations[savedLang]) {
+                    const sel = document.getElementById("lang-selector");
+                    if (sel) {
+                        sel.value = savedLang;
+                        changeLanguage();
+                    }
+                }
+            } catch (e) {}
+
+            updateThemeButtonText();
+            updateReport();
+        });
+
+        // Backup for window.onload
         window.onload = function() {
+            updateThemeButtonText();
             updateReport();
         };
     </script>
