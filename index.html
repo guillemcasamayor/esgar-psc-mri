@@ -139,11 +139,18 @@
             font-size: 0.85rem;
         }
 
-        .header-subtitle {
+        .header-subtitle, .header-link {
             font-size: 0.8rem;
             color: var(--text-secondary);
             margin: 0;
             white-space: nowrap;
+            text-decoration: none;
+            transition: color 0.15s ease;
+        }
+
+        .header-link:hover {
+            color: var(--accent-color);
+            text-decoration: underline;
         }
 
         .header-authors {
@@ -627,7 +634,7 @@
             <span class="header-badge">ESGAR 2025</span>
             <h1 id="ui-main-title">RM en Colangitis Esclerosante Primaria</h1>
             <span class="header-sep">•</span>
-            <span class="header-subtitle" id="ui-subtitle">Consenso ESGAR 2025 (Ippolito et al.)</span>
+            <a href="https://link.springer.com/content/pdf/10.1007/s00330-025-11583-4.pdf" target="_blank" rel="noopener noreferrer" class="header-link" id="ui-subtitle" title="Abrir PDF oficial del Consenso ESGAR 2025">Consenso ESGAR 2025 (Ippolito et al.) ↗</a>
             <span class="header-sep">•</span>
             <div class="header-authors" id="ui-authors-badge">
                 <span class="author-tag">🩺 Dr. Guillem Casamayor &amp; Dr. Oriol Busquets</span>
@@ -1260,7 +1267,7 @@
                 "repConclusionTitle": "CONCLUSIÓN / IMPRESIÓN",
                 "repNotesTitle": "OBSERVACIONES / COMENTARIOS",
                 "ui-footer-authors": "<strong>Autoría y Desarrollo:</strong> Dr. Guillem Casamayor &amp; Dr. Oriol Busquets",
-                "ui-footer-ref": "Módulo basado en las recomendaciones oficiales del Consenso Europeo ESGAR 2025 (<em>Ippolito et al., Eur Radiol 2025</em>).",
+                "ui-footer-ref": "Módulo basado en las recomendaciones oficiales del <a href='https://link.springer.com/content/pdf/10.1007/s00330-025-11583-4.pdf' target='_blank' rel='noopener noreferrer' style='color:var(--accent-color); text-decoration:none;'>Consenso Europeo ESGAR 2025 (<em>Ippolito et al., Eur Radiol 2025</em>) ↗</a>.",
                 "ui-footer-cc-text": "Licencia Creative Commons Atribución-NoComercial-CompartirIgual 4.0 Internacional (CC BY-NC-SA 4.0)",
                 "ui-footer-usage": "• Uso libre para docencia e investigación clínica sin fines comerciales.",
                 "lbl-antiperistaltic": "Agente Espasmolítico / Antiperistáltico:",
@@ -1426,7 +1433,7 @@
                 "repConclusionTitle": "CONCLUSIÓ / IMPRESSIÓ",
                 "repNotesTitle": "OBSERVACIONS / COMENTARIS",
                 "ui-footer-authors": "<strong>Autoria i Desenvolupament:</strong> Dr. Guillem Casamayor &amp; Dr. Oriol Busquets",
-                "ui-footer-ref": "Mòdul basat en les recomanacions oficials del Consens Europeu ESGAR 2025 (<em>Ippolito et al., Eur Radiol 2025</em>).",
+                "ui-footer-ref": "Mòdul basat en les recomanacions oficials del <a href='https://link.springer.com/content/pdf/10.1007/s00330-025-11583-4.pdf' target='_blank' rel='noopener noreferrer' style='color:var(--accent-color); text-decoration:none;'>Consens Europeu ESGAR 2025 (<em>Ippolito et al., Eur Radiol 2025</em>) ↗</a>.",
                 "ui-footer-cc-text": "Llicència Creative Commons Reconeixement-NoComercial-CompartirIgual 4.0 Internacional (CC BY-NC-SA 4.0)",
                 "ui-footer-usage": "• Ús lliure per a docència i recerca clínica sense fins comercials.",
                 "lbl-antiperistaltic": "Agent Espasmolític / Antiperistàltic:",
@@ -1592,7 +1599,7 @@
                 "repConclusionTitle": "CONCLUSION / IMPRESSION",
                 "repNotesTitle": "ADDITIONAL NOTES",
                 "ui-footer-authors": "<strong>Authorship & Development:</strong> Dr. Guillem Casamayor &amp; Dr. Oriol Busquets",
-                "ui-footer-ref": "Module based on the official European ESGAR 2025 Consensus recommendations (<em>Ippolito et al., Eur Radiol 2025</em>).",
+                "ui-footer-ref": "Module based on official recommendations of the <a href='https://link.springer.com/content/pdf/10.1007/s00330-025-11583-4.pdf' target='_blank' rel='noopener noreferrer' style='color:var(--accent-color); text-decoration:none;'>European ESGAR 2025 Consensus (<em>Ippolito et al., Eur Radiol 2025</em>) ↗</a>.",
                 "ui-footer-cc-text": "Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License (CC BY-NC-SA 4.0)",
                 "ui-footer-usage": "• Free for medical education and clinical research without commercial use.",
                 "lbl-antiperistaltic": "Spasmolytic / Antiperistaltic Agent:",
