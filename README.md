@@ -8,9 +8,19 @@ Módulo interactivo de informe radiológico estructurado para **Resonancia Magn�
 
 ---
 
-## 👥 Equipo del Proyecto
-* **Oriol Busquets** (Radiología Abdominal / Digestiva)
-* **Guillem Casamayor** (Radiología & Desarrollo IA / Informes Estructurados)
+## 👥 Autoría y Equipo del Proyecto
+* **Dr. Guillem Casamayor** (Radiología & Desarrollo IA / Informes Estructurados)
+* **Dr. Oriol Busquets** (Radiología Abdominal / Digestiva)
+
+---
+
+## ⚖️ Licencia y Distribución
+Este software y módulo de informe estructurado se distribuye bajo la licencia:  
+**[Creative Commons Atribución-NoComercial-CompartirIgual 4.0 Internacional (CC BY-NC-SA 4.0)](https://creativecommons.org/licenses/by-nc-sa/4.0/)**
+
+* **Atribución (BY):** Debe darse el crédito adecuado a los autores (**Dr. Guillem Casamayor & Dr. Oriol Busquets**) y citar la publicación original del Consenso ESGAR 2025.
+* **No Comercial (NC):** No se permite el uso del material con fines comerciales. Uso libre para asistencia médica, docencia e investigación clínica sin ánimo de lucro.
+* **Compartir Igual (SA):** Si se remezcla, transforma o crea a partir del material, debe distribuirse bajo la misma licencia.
 
 ---
 

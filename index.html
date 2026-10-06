@@ -3,6 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Dr. Guillem Casamayor, Dr. Oriol Busquets">
+    <meta name="copyright" content="Dr. Guillem Casamayor &amp; Dr. Oriol Busquets">
+    <meta name="license" content="CC BY-NC-SA 4.0">
+
     <title>ESGAR 2025 PSC MR Reporting Module</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -449,6 +453,79 @@
             visibility: visible;
             opacity: 1;
         }
+    
+        .header-authors {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 4px;
+            font-size: 0.78rem;
+            flex-wrap: wrap;
+        }
+        .author-tag {
+            color: var(--text-color);
+            font-weight: 600;
+        }
+        .license-tag {
+            background-color: var(--accent-light);
+            color: var(--accent-color);
+            border: 1px solid var(--accent-border);
+            font-size: 0.7rem;
+            font-weight: 700;
+            padding: 2px 7px;
+            border-radius: 4px;
+            letter-spacing: 0.3px;
+            display: inline-block;
+        }
+        .app-footer {
+            background-color: var(--surface-color);
+            border-top: 1px solid var(--border-color);
+            padding: 22px 28px;
+            margin-top: 36px;
+            font-size: 0.82rem;
+            color: var(--text-secondary);
+            text-align: center;
+        }
+        .footer-content {
+            max-width: 900px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            align-items: center;
+        }
+        .footer-authors {
+            color: var(--text-color);
+            font-weight: 600;
+            font-size: 0.88rem;
+        }
+        .footer-license {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-top: 4px;
+        }
+        .cc-badge-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: 600;
+            background: var(--code-bg);
+            padding: 3px 10px;
+            border-radius: 4px;
+            border: 1px solid var(--border-color);
+            transition: all 0.2s ease;
+        }
+        .cc-badge-link:hover {
+            color: var(--accent-hover);
+            border-color: var(--accent-border);
+            text-decoration: underline;
+        }
+
     </style>
 </head>
 <body data-theme="light">
@@ -459,6 +536,10 @@
             <div>
                 <h1 id="ui-main-title">RM en Colangitis Esclerosante Primaria</h1>
                 <div class="header-subtitle" id="ui-subtitle">Módulo de Informe Estructurado &bull; Guías de Consenso Europeo (Ippolito et al., 2025)</div>
+                <div class="header-authors" id="ui-authors-badge">
+                    <span class="author-tag">🩺 Dr. Guillem Casamayor &amp; Dr. Oriol Busquets</span>
+                    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener noreferrer" class="license-tag" title="Creative Commons Atribución-NoComercial-CompartirIgual 4.0 Internacional">CC BY-NC-SA 4.0</a>
+                </div>
             </div>
         </div>
         <div class="header-controls">
@@ -1071,7 +1152,11 @@
                 "repPancreasTitle": "5. PÁNCREAS",
                 "repScoresTitle": "6. ESTRATIFICACIÓN PRONÓSTICA (SCORE ANALI)",
                 "repConclusionTitle": "CONCLUSIÓN / IMPRESIÓN",
-                "repNotesTitle": "OBSERVACIONES / COMENTARIOS"
+                "repNotesTitle": "OBSERVACIONES / COMENTARIOS",
+                "ui-footer-authors": "<strong>Autoría y Desarrollo:</strong> Dr. Guillem Casamayor &amp; Dr. Oriol Busquets",
+                "ui-footer-ref": "Módulo basado en las recomendaciones oficiales del Consenso Europeo ESGAR 2025 (<em>Ippolito et al., Eur Radiol 2025</em>).",
+                "ui-footer-cc-text": "Licencia Creative Commons Atribución-NoComercial-CompartirIgual 4.0 Internacional (CC BY-NC-SA 4.0)",
+                "ui-footer-usage": "• Uso libre para docencia e investigación clínica sin fines comerciales."
         },
         "ca": {
                 "ui-main-title": "RM en Colangitis Esclerosant Primària",
@@ -1226,7 +1311,11 @@
                 "repPancreasTitle": "5. PÀNCREES",
                 "repScoresTitle": "6. ESTRATIFICACIÓ PRONÒSTICA (SCORE ANALI)",
                 "repConclusionTitle": "CONCLUSIÓ / IMPRESSIÓ",
-                "repNotesTitle": "OBSERVACIONS / COMENTARIS"
+                "repNotesTitle": "OBSERVACIONS / COMENTARIS",
+                "ui-footer-authors": "<strong>Autoria i Desenvolupament:</strong> Dr. Guillem Casamayor &amp; Dr. Oriol Busquets",
+                "ui-footer-ref": "Mòdul basat en les recomanacions oficials del Consens Europeu ESGAR 2025 (<em>Ippolito et al., Eur Radiol 2025</em>).",
+                "ui-footer-cc-text": "Llicència Creative Commons Reconeixement-NoComercial-CompartirIgual 4.0 Internacional (CC BY-NC-SA 4.0)",
+                "ui-footer-usage": "• Ús lliure per a docència i recerca clínica sense fins comercials."
         },
         "en": {
                 "ui-main-title": "MR Imaging in Primary Sclerosing Cholangitis",
@@ -1381,7 +1470,11 @@
                 "repPancreasTitle": "5. PANCREAS",
                 "repScoresTitle": "6. PROGNOSTIC STRATIFICATION (ANALI SCORE)",
                 "repConclusionTitle": "CONCLUSION / IMPRESSION",
-                "repNotesTitle": "ADDITIONAL NOTES"
+                "repNotesTitle": "ADDITIONAL NOTES",
+                "ui-footer-authors": "<strong>Authorship & Development:</strong> Dr. Guillem Casamayor &amp; Dr. Oriol Busquets",
+                "ui-footer-ref": "Module based on the official European ESGAR 2025 Consensus recommendations (<em>Ippolito et al., Eur Radiol 2025</em>).",
+                "ui-footer-cc-text": "Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License (CC BY-NC-SA 4.0)",
+                "ui-footer-usage": "• Free for medical education and clinical research without commercial use."
         }
 };
 
@@ -1805,8 +1898,19 @@
             }
 
             lines.push("\n========================================================================");
-            lines.push(lang === "en" ? "Structured report generated with ESGAR 2025 PSC Module v1.1" : (lang === "ca" ? "Informe estructurat generat amb el mòdul ESGAR 2025 CEP v1.1" : "Informe estructurado generado con el módulo ESGAR 2025 PSC v1.1"));
-            lines.push("Oriol Busquets & Guillem Casamayor - Consenso Europeo ESGAR");
+            if (lang === "en") {
+                lines.push("Structured report generated with ESGAR 2025 PSC Module v1.2");
+                lines.push("Authorship: Dr. Guillem Casamayor & Dr. Oriol Busquets");
+                lines.push("European ESGAR Consensus 2025 (Ippolito et al.) | License: CC BY-NC-SA 4.0");
+            } else if (lang === "ca") {
+                lines.push("Informe estructurat generat amb el mòdul ESGAR 2025 CEP v1.2");
+                lines.push("Autoria: Dr. Guillem Casamayor & Dr. Oriol Busquets");
+                lines.push("Consens Europeu ESGAR 2025 (Ippolito et al.) | Llicència: CC BY-NC-SA 4.0");
+            } else {
+                lines.push("Informe estructurado generado con el módulo ESGAR 2025 PSC v1.2");
+                lines.push("Autoría: Dr. Guillem Casamayor & Dr. Oriol Busquets");
+                lines.push("Consenso Europeo ESGAR 2025 (Ippolito et al.) | Licencia: CC BY-NC-SA 4.0");
+            }
             lines.push("========================================================================");
 
             const outEl = document.getElementById("report-output");
