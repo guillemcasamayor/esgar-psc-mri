@@ -74,21 +74,25 @@
 
         * {
             box-sizing: border-box;
-            font-family: 'Ubuntu', sans-serif;
             margin: 0;
             padding: 0;
         }
 
         body {
+            font-family: 'Ubuntu', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
             background-color: var(--bg-color);
             color: var(--text-color);
-            transition: background-color 0.2s ease, color 0.2s ease;
             min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
         }
 
+        /* Sleek compact single-line header */
         header {
             background-color: var(--surface-color);
-            padding: 14px 28px;
+            padding: 6px 18px;
+            min-height: 44px;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -97,101 +101,177 @@
             position: sticky;
             top: 0;
             z-index: 50;
+            flex-shrink: 0;
         }
 
         .header-title-box {
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 10px;
+            flex-wrap: nowrap;
+            overflow: hidden;
         }
 
         .header-badge {
             background-color: var(--accent-color);
             color: #ffffff;
-            font-size: 0.74rem;
+            font-size: 0.72rem;
             font-weight: 700;
-            padding: 5px 9px;
+            padding: 3px 8px;
             border-radius: 4px;
             letter-spacing: 0.5px;
             text-transform: uppercase;
+            flex-shrink: 0;
         }
 
-        h1 {
-            font-size: 1.25rem;
-            color: var(--title-color);
+        .header-title-box h1 {
+            font-size: 1.05rem;
             font-weight: 700;
+            color: var(--title-color);
+            margin: 0;
+            white-space: nowrap;
+        }
+
+        .header-sep {
+            color: var(--border-color);
+            font-weight: bold;
+            user-select: none;
+            font-size: 0.85rem;
         }
 
         .header-subtitle {
             font-size: 0.8rem;
             color: var(--text-secondary);
-            margin-top: 2px;
+            margin: 0;
+            white-space: nowrap;
+        }
+
+        .header-authors {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.8rem;
+            white-space: nowrap;
+            margin: 0;
+        }
+
+        .author-tag {
+            color: var(--text-color);
+            font-weight: 600;
+        }
+
+        .license-tag {
+            background-color: var(--accent-light);
+            color: var(--accent-color);
+            border: 1px solid var(--accent-border);
+            font-size: 0.68rem;
+            font-weight: 700;
+            padding: 2px 6px;
+            border-radius: 4px;
+            letter-spacing: 0.3px;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+
+        .license-tag:hover {
+            background-color: var(--accent-color);
+            color: #ffffff;
         }
 
         .header-controls {
             display: flex;
-            gap: 10px;
+            gap: 8px;
             align-items: center;
+            flex-shrink: 0;
         }
 
         select, button {
-            padding: 7px 12px;
-            border-radius: 6px;
-            border: 1px solid var(--border-color);
-            background-color: var(--input-bg);
+            background-color: var(--surface-color);
             color: var(--text-color);
-            font-size: 0.88rem;
+            border: 1px solid var(--border-color);
+            padding: 5px 12px;
+            border-radius: 6px;
+            font-size: 0.82rem;
+            font-family: inherit;
             cursor: pointer;
-            transition: all 0.15s ease;
+            transition: all 0.2s ease;
         }
 
-        button:hover {
+        select:hover, button:hover {
             border-color: var(--accent-color);
-            color: var(--accent-color);
         }
 
-        button.btn-primary {
+        .btn-primary {
             background-color: var(--accent-color);
             color: #ffffff;
             border-color: var(--accent-color);
             font-weight: 500;
         }
 
-        button.btn-primary:hover {
+        .btn-primary:hover {
             background-color: var(--accent-hover);
-            color: #ffffff;
+            border-color: var(--accent-hover);
         }
 
+        /* Resizable Flex Split Layout */
         .layout-container {
-            display: grid;
-            grid-template-columns: 1.8fr 1.2fr;
-            min-height: calc(100vh - 65px);
-            max-width: 1920px;
-            margin: 0 auto;
-        }
-
-        @media (max-width: 1100px) {
-            .layout-container {
-                grid-template-columns: 1fr;
-            }
+            display: flex;
+            flex-direction: row;
+            height: calc(100vh - 44px);
+            width: 100%;
+            margin: 0;
+            overflow: hidden;
+            position: relative;
         }
 
         .form-column {
-            padding: 24px 30px 60px;
+            width: 58%;
+            min-width: 340px;
+            max-width: 82%;
+            padding: 18px 26px 40px;
             overflow-y: auto;
-            max-height: calc(100vh - 65px);
-            border-right: 1px solid var(--border-color);
+            height: 100%;
+            flex-shrink: 0;
+        }
+
+        .layout-divider {
+            width: 7px;
+            cursor: col-resize;
+            background-color: var(--border-color);
+            position: relative;
+            user-select: none;
+            flex-shrink: 0;
+            transition: background-color 0.15s ease;
+            z-index: 20;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .layout-divider:hover,
+        .layout-divider.dragging {
+            background-color: var(--accent-color);
+        }
+
+        .layout-divider::before {
+            content: '';
+            width: 2px;
+            height: 32px;
+            background-color: var(--surface-color);
+            border-radius: 1px;
+            opacity: 0.85;
         }
 
         .report-column {
-            padding: 24px 28px;
+            flex: 1;
+            min-width: 300px;
+            padding: 16px 20px;
             background-color: var(--surface-color);
             display: flex;
             flex-direction: column;
-            gap: 14px;
-            max-height: calc(100vh - 65px);
-            position: sticky;
-            top: 65px;
+            height: 100%;
+            overflow: hidden;
+            position: relative;
         }
 
         .card-section {
@@ -201,16 +281,11 @@
             margin-bottom: 18px;
             box-shadow: var(--shadow);
             overflow: hidden;
-            transition: border-color 0.2s ease;
-        }
-
-        .card-section:hover {
-            border-color: var(--accent-border);
         }
 
         .section-header {
             background-color: var(--section-header-bg);
-            padding: 10px 18px;
+            padding: 10px 16px;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -218,7 +293,7 @@
         }
 
         .section-header h2 {
-            font-size: 0.96rem;
+            font-size: 0.94rem;
             font-weight: 700;
             color: var(--title-color);
             display: flex;
@@ -227,25 +302,23 @@
         }
 
         .section-body {
-            padding: 16px 20px;
-            display: flex;
-            flex-direction: column;
-            gap: 13px;
+            padding: 16px;
         }
 
         .field-row {
-            display: flex;
-            flex-direction: column;
-            gap: 6px;
+            margin-bottom: 14px;
+        }
+
+        .field-row:last-child {
+            margin-bottom: 0;
         }
 
         .field-label {
-            font-size: 0.86rem;
+            font-size: 0.85rem;
             font-weight: 600;
             color: var(--text-color);
-            display: flex;
-            align-items: center;
-            gap: 6px;
+            margin-bottom: 6px;
+            display: block;
         }
 
         .radio-group, .checkbox-group {
@@ -258,152 +331,167 @@
             display: inline-flex;
             align-items: center;
             gap: 6px;
-            padding: 6px 12px;
+            background-color: var(--surface-color);
             border: 1px solid var(--border-color);
+            padding: 6px 12px;
             border-radius: 6px;
-            background-color: var(--input-bg);
-            color: var(--text-color);
-            font-size: 0.85rem;
+            font-size: 0.82rem;
             cursor: pointer;
+            transition: all 0.2s ease;
             user-select: none;
-            transition: all 0.15s ease;
-        }
-
-        .radio-card input {
-            cursor: pointer;
-            accent-color: var(--accent-color);
         }
 
         .radio-card:hover {
             border-color: var(--accent-color);
+            background-color: var(--accent-light);
         }
 
-        .radio-card:has(input:checked) {
+        .radio-card input[type="radio"],
+        .radio-card input[type="checkbox"] {
+            accent-color: var(--accent-color);
+            cursor: pointer;
+        }
+
+        .form-select, .form-input {
+            width: 100%;
+            background-color: var(--input-bg);
+            color: var(--text-color);
+            border: 1px solid var(--border-color);
+            padding: 7px 12px;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            font-family: inherit;
+        }
+
+        .form-select:focus, .form-input:focus {
+            outline: none;
             border-color: var(--accent-color);
-            background-color: var(--accent-light);
-            font-weight: 500;
-        }
-
-        [data-theme="dark"] .radio-card:has(input:checked) {
-            background-color: var(--accent-light);
-            color: #ffffff;
+            box-shadow: 0 0 0 2px var(--accent-light);
         }
 
         .input-inline {
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
+            margin-bottom: 12px;
             flex-wrap: wrap;
         }
 
-        input[type="text"], input[type="number"], select.form-select, textarea {
-            padding: 6px 10px;
-            border-radius: 6px;
-            border: 1px solid var(--border-color);
-            background-color: var(--input-bg);
-            color: var(--text-color);
-            font-size: 0.86rem;
+        .input-inline .field-label {
+            margin-bottom: 0;
+            min-width: 170px;
         }
 
-        input[type="number"] {
+        .input-inline input[type="number"],
+        .input-inline input[type="text"] {
+            background-color: var(--input-bg);
+            color: var(--text-color);
+            border: 1px solid var(--border-color);
+            padding: 6px 10px;
+            border-radius: 6px;
+            font-size: 0.84rem;
             width: 90px;
         }
 
         .conditional-box {
             display: none;
-            padding: 12px 14px;
-            background-color: var(--bg-color);
+            background-color: var(--code-bg);
             border-left: 3px solid var(--accent-color);
+            padding: 12px 14px;
+            margin-top: 10px;
+            margin-bottom: 10px;
             border-radius: 0 6px 6px 0;
-            margin-top: 4px;
-            gap: 12px;
-            flex-direction: column;
         }
 
         .conditional-box.visible {
-            display: flex;
+            display: block;
         }
 
-        .notice-box {
-            padding: 8px 12px;
-            border-radius: 6px;
-            font-size: 0.82rem;
-            line-height: 1.4;
-            display: flex;
-            align-items: flex-start;
-            gap: 8px;
-        }
-
-        .notice-info {
-            background-color: var(--accent-light);
-            color: var(--accent-color);
-            border: 1px solid var(--accent-border);
-        }
-
-        .notice-warning {
+        .alert-box {
             background-color: var(--warning-bg);
-            color: var(--warning-text);
             border: 1px solid var(--warning-border);
-        }
-
-        .notice-danger {
-            background-color: var(--danger-bg);
-            color: var(--danger-text);
-            border: 1px solid var(--danger-border);
-            font-weight: 500;
-        }
-
-        .anali-score-card {
-            background-color: var(--panel-bg);
-            border: 1.5px solid var(--accent-color);
-            border-radius: 8px;
-            padding: 12px 18px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+            color: var(--warning-text);
+            padding: 10px 14px;
+            border-radius: 6px;
+            font-size: 0.8rem;
             margin-top: 8px;
+            display: none;
         }
 
-        .anali-score-val {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--accent-color);
+        .score-card-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px;
         }
 
-        .anali-risk-tag {
-            padding: 4px 10px;
-            border-radius: 4px;
+        .score-card {
+            background-color: var(--surface-color);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 12px 14px;
+            text-align: center;
+        }
+
+        .score-card-title {
             font-size: 0.82rem;
             font-weight: 700;
+            color: var(--text-secondary);
+            margin-bottom: 4px;
             text-transform: uppercase;
         }
 
-        .risk-low {
+        .score-card-desc {
+            font-size: 0.74rem;
+            color: var(--text-secondary);
+            margin-bottom: 8px;
+            line-height: 1.35;
+        }
+
+        .score-val {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--title-color);
+            margin-bottom: 4px;
+        }
+
+        .score-tag {
+            display: inline-block;
+            font-size: 0.74rem;
+            font-weight: 700;
+            padding: 3px 8px;
+            border-radius: 12px;
+            letter-spacing: 0.3px;
+        }
+
+        .tag-low {
             background-color: var(--success-bg);
             color: var(--success-text);
             border: 1px solid var(--success-border);
         }
 
-        .risk-intermediate {
+        .tag-mod {
             background-color: var(--warning-bg);
             color: var(--warning-text);
             border: 1px solid var(--warning-border);
         }
 
-        .risk-high {
+        .tag-high {
             background-color: var(--danger-bg);
             color: var(--danger-text);
             border: 1px solid var(--danger-border);
         }
 
+        /* Report Preview Panel */
         .report-header-row {
             display: flex;
             justify-content: space-between;
             align-items: center;
+            margin-bottom: 12px;
+            flex-shrink: 0;
         }
 
         .report-header-row h3 {
-            font-size: 1.05rem;
+            font-size: 1.02rem;
             font-weight: 700;
             color: var(--title-color);
         }
@@ -416,8 +504,8 @@
         #report-output {
             flex: 1;
             width: 100%;
-            height: calc(100vh - 200px);
-            padding: 16px;
+            height: 100%;
+            padding: 14px;
             font-family: 'Consolas', 'Courier New', monospace;
             font-size: 0.88rem;
             line-height: 1.55;
@@ -430,75 +518,30 @@
             overflow-y: auto;
         }
 
-        #toast {
-            visibility: hidden;
-            min-width: 250px;
-            background-color: #0f172a;
-            color: #fff;
-            text-align: center;
-            border-radius: 8px;
-            padding: 12px 18px;
-            position: fixed;
-            z-index: 100;
-            bottom: 30px;
-            right: 30px;
-            font-size: 0.88rem;
-            box-shadow: var(--shadow-md);
-            opacity: 0;
-            transition: opacity 0.3s, visibility 0.3s;
-            border: 1px solid var(--accent-color);
-        }
-
-        #toast.show {
-            visibility: visible;
-            opacity: 1;
-        }
-    
-        .header-authors {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            margin-top: 4px;
-            font-size: 0.78rem;
-            flex-wrap: wrap;
-        }
-        .author-tag {
-            color: var(--text-color);
-            font-weight: 600;
-        }
-        .license-tag {
-            background-color: var(--accent-light);
-            color: var(--accent-color);
-            border: 1px solid var(--accent-border);
-            font-size: 0.7rem;
-            font-weight: 700;
-            padding: 2px 7px;
-            border-radius: 4px;
-            letter-spacing: 0.3px;
-            display: inline-block;
-        }
         .app-footer {
             background-color: var(--surface-color);
             border-top: 1px solid var(--border-color);
-            padding: 22px 28px;
-            margin-top: 36px;
-            font-size: 0.82rem;
+            padding: 18px 20px;
+            margin-top: 28px;
+            font-size: 0.8rem;
             color: var(--text-secondary);
             text-align: center;
+            border-radius: 6px;
         }
+
         .footer-content {
-            max-width: 900px;
-            margin: 0 auto;
             display: flex;
             flex-direction: column;
             gap: 6px;
             align-items: center;
         }
+
         .footer-authors {
             color: var(--text-color);
             font-weight: 600;
-            font-size: 0.88rem;
+            font-size: 0.85rem;
         }
+
         .footer-license {
             display: flex;
             align-items: center;
@@ -507,6 +550,7 @@
             flex-wrap: wrap;
             margin-top: 4px;
         }
+
         .cc-badge-link {
             display: inline-flex;
             align-items: center;
@@ -520,12 +564,60 @@
             border: 1px solid var(--border-color);
             transition: all 0.2s ease;
         }
+
         .cc-badge-link:hover {
             color: var(--accent-hover);
             border-color: var(--accent-border);
             text-decoration: underline;
         }
 
+        .toast {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            background-color: var(--title-color);
+            color: #ffffff;
+            padding: 10px 18px;
+            border-radius: 6px;
+            font-size: 0.84rem;
+            font-weight: 500;
+            box-shadow: var(--shadow-md);
+            opacity: 0;
+            transform: translateY(10px);
+            transition: all 0.25s ease;
+            pointer-events: none;
+            z-index: 100;
+        }
+
+        .toast.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @media (max-width: 960px) {
+            .header-title-box {
+                flex-wrap: wrap;
+            }
+            .header-sep {
+                display: none;
+            }
+            .layout-container {
+                flex-direction: column;
+                height: auto;
+            }
+            .layout-divider {
+                display: none;
+            }
+            .form-column {
+                width: 100% !important;
+                max-width: 100%;
+                height: auto;
+            }
+            .report-column {
+                width: 100% !important;
+                height: 600px;
+            }
+        }
     </style>
 </head>
 <body data-theme="light">
@@ -533,13 +625,13 @@
     <header>
         <div class="header-title-box">
             <span class="header-badge">ESGAR 2025</span>
-            <div>
-                <h1 id="ui-main-title">RM en Colangitis Esclerosante Primaria</h1>
-                <div class="header-subtitle" id="ui-subtitle">Módulo de Informe Estructurado &bull; Guías de Consenso Europeo (Ippolito et al., 2025)</div>
-                <div class="header-authors" id="ui-authors-badge">
-                    <span class="author-tag">🩺 Dr. Guillem Casamayor &amp; Dr. Oriol Busquets</span>
-                    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener noreferrer" class="license-tag" title="Creative Commons Atribución-NoComercial-CompartirIgual 4.0 Internacional">CC BY-NC-SA 4.0</a>
-                </div>
+            <h1 id="ui-main-title">RM en Colangitis Esclerosante Primaria</h1>
+            <span class="header-sep">•</span>
+            <span class="header-subtitle" id="ui-subtitle">Consenso ESGAR 2025 (Ippolito et al.)</span>
+            <span class="header-sep">•</span>
+            <div class="header-authors" id="ui-authors-badge">
+                <span class="author-tag">🩺 Dr. Guillem Casamayor &amp; Dr. Oriol Busquets</span>
+                <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener noreferrer" class="license-tag" title="Creative Commons Atribución-NoComercial-CompartirIgual 4.0 Internacional">CC BY-NC-SA 4.0</a>
             </div>
         </div>
         <div class="header-controls">
@@ -548,14 +640,14 @@
                 <option value="ca">Català</option>
                 <option value="en">English</option>
             </select>
-            <button onclick="toggleTheme()" id="theme-btn">&#9790; Modo Oscuro</button>
-            <button onclick="resetForm()" id="reset-btn">&#8635; Reiniciar</button>
+            <button onclick="toggleTheme()" id="theme-btn">🌙 Modo Oscuro</button>
+            <button onclick="resetForm()" id="reset-btn">↺ Reiniciar</button>
         </div>
     </header>
 
-    <div class="layout-container">
+    <div class="layout-container" id="layout-container">
         <!-- FORMULARIO CLINICO IZQUIERDA -->
-        <div class="form-column">
+        <div class="form-column" id="form-column">
 
             <!-- DATOS GENERALES Y TIPO DE ESTUDIO -->
             <div class="card-section">
@@ -605,6 +697,16 @@
                             <label class="radio-card"><input type="radio" name="fasting" value="no" onchange="updateReport()"> <span id="opt-fasting-no">No</span></label>
                         </div>
                     </div>
+                    <!-- Agente antiperistáltico (Recomendación Consenso ESGAR) -->
+                    <div class="input-inline">
+                        <label class="field-label" id="lbl-antiperistaltic">Agente Espasmolítico / Antiperistáltico:</label>
+                        <div class="radio-group">
+                            <label class="radio-card"><input type="radio" name="antiperistaltic" value="buscopan" checked onchange="updateReport()"> <span id="opt-ap-buscopan">Butilescopolamina (Buscapina)</span></label>
+                            <label class="radio-card"><input type="radio" name="antiperistaltic" value="glucagon" onchange="updateReport()"> <span id="opt-ap-glucagon">Glucagón</span></label>
+                            <label class="radio-card"><input type="radio" name="antiperistaltic" value="none" onchange="updateReport()"> <span id="opt-ap-none">No administrado</span></label>
+                            <label class="radio-card"><input type="radio" name="antiperistaltic" value="contraindicated" onchange="updateReport()"> <span id="opt-ap-contra">Contraindicado</span></label>
+                        </div>
+                    </div>
                     <div class="field-row">
                         <label class="field-label" id="lbl-sequences">Secuencias Adquiridas:</label>
                         <div class="checkbox-group">
@@ -614,6 +716,10 @@
                             <label class="radio-card"><input type="checkbox" id="seq-dwi" checked onchange="updateReport()"> <span id="lbl-seq-dwi">Difusión (DWI bajo y alto b)</span></label>
                             <label class="radio-card"><input type="checkbox" id="seq-dyn" checked onchange="updateReport()"> <span id="lbl-seq-dyn">T1 Dinámico con Contraste IV</span></label>
                             <label class="radio-card"><input type="checkbox" id="seq-hba" onchange="onHbaSeqChange()"> <span id="lbl-seq-hba">Fase Hepatobiliar HBA (gadoxético)</span></label>
+                            <label class="radio-card"><input type="checkbox" id="seq-other" onchange="onSeqOtherChange()"> <span id="lbl-seq-other">Otras secuencias</span></label>
+                        </div>
+                        <div id="box-seq-other" style="display: none; margin-top: 8px;">
+                            <input type="text" id="seq-other-text" class="form-input" style="width: 100%; box-sizing: border-box;" placeholder="Especificar otras secuencias (ej: elastografía por RM, T2 coronal alta resolución...)" oninput="updateReport()">
                         </div>
                     </div>
                 </div>
@@ -1001,7 +1107,7 @@
         const translations = {
         "es": {
                 "ui-main-title": "RM en Colangitis Esclerosante Primaria",
-                "ui-subtitle": "Módulo de Informe Estructurado • Guías de Consenso Europeo (Ippolito et al., 2025)",
+                "ui-subtitle": "Consenso ESGAR 2025 (Ippolito et al.)",
                 "theme-btn-dark": "🌙 Modo Oscuro",
                 "theme-btn-light": "☀️ Modo Claro",
                 "reset-btn": "↺ Reiniciar",
@@ -1156,11 +1262,18 @@
                 "ui-footer-authors": "<strong>Autoría y Desarrollo:</strong> Dr. Guillem Casamayor &amp; Dr. Oriol Busquets",
                 "ui-footer-ref": "Módulo basado en las recomendaciones oficiales del Consenso Europeo ESGAR 2025 (<em>Ippolito et al., Eur Radiol 2025</em>).",
                 "ui-footer-cc-text": "Licencia Creative Commons Atribución-NoComercial-CompartirIgual 4.0 Internacional (CC BY-NC-SA 4.0)",
-                "ui-footer-usage": "• Uso libre para docencia e investigación clínica sin fines comerciales."
+                "ui-footer-usage": "• Uso libre para docencia e investigación clínica sin fines comerciales.",
+                "lbl-antiperistaltic": "Agente Espasmolítico / Antiperistáltico:",
+                "opt-ap-buscopan": "Butilescopolamina (Buscapina)",
+                "opt-ap-glucagon": "Glucagón",
+                "opt-ap-none": "No administrado",
+                "opt-ap-contra": "Contraindicado",
+                "lbl-seq-other": "Otras secuencias",
+                "seq-other-placeholder": "Especificar otras secuencias (ej: elastografía por RM, T2 coronal alta resolución...)"
         },
         "ca": {
                 "ui-main-title": "RM en Colangitis Esclerosant Primària",
-                "ui-subtitle": "Mòdul d'Informe Estructurat • Guies de Consens Europeu (Ippolito et al., 2025)",
+                "ui-subtitle": "Consens ESGAR 2025 (Ippolito et al.)",
                 "theme-btn-dark": "🌙 Mode Fosc",
                 "theme-btn-light": "☀️ Mode Clar",
                 "reset-btn": "↺ Reiniciar",
@@ -1315,11 +1428,18 @@
                 "ui-footer-authors": "<strong>Autoria i Desenvolupament:</strong> Dr. Guillem Casamayor &amp; Dr. Oriol Busquets",
                 "ui-footer-ref": "Mòdul basat en les recomanacions oficials del Consens Europeu ESGAR 2025 (<em>Ippolito et al., Eur Radiol 2025</em>).",
                 "ui-footer-cc-text": "Llicència Creative Commons Reconeixement-NoComercial-CompartirIgual 4.0 Internacional (CC BY-NC-SA 4.0)",
-                "ui-footer-usage": "• Ús lliure per a docència i recerca clínica sense fins comercials."
+                "ui-footer-usage": "• Ús lliure per a docència i recerca clínica sense fins comercials.",
+                "lbl-antiperistaltic": "Agent Espasmolític / Antiperistàltic:",
+                "opt-ap-buscopan": "Butilescopolamina (Buscapina)",
+                "opt-ap-glucagon": "Glucagó",
+                "opt-ap-none": "No administrat",
+                "opt-ap-contra": "Contraindicat",
+                "lbl-seq-other": "Altres seqüències",
+                "seq-other-placeholder": "Especificar altres seqüències (ex: elastografia per RM, T2 coronal alta resolució...)"
         },
         "en": {
                 "ui-main-title": "MR Imaging in Primary Sclerosing Cholangitis",
-                "ui-subtitle": "Structured Reporting Module • European Consensus Statement (Ippolito et al., 2025)",
+                "ui-subtitle": "ESGAR Consensus 2025 (Ippolito et al.)",
                 "theme-btn-dark": "🌙 Dark Mode",
                 "theme-btn-light": "☀️ Light Mode",
                 "reset-btn": "↺ Reset",
@@ -1474,7 +1594,14 @@
                 "ui-footer-authors": "<strong>Authorship & Development:</strong> Dr. Guillem Casamayor &amp; Dr. Oriol Busquets",
                 "ui-footer-ref": "Module based on the official European ESGAR 2025 Consensus recommendations (<em>Ippolito et al., Eur Radiol 2025</em>).",
                 "ui-footer-cc-text": "Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License (CC BY-NC-SA 4.0)",
-                "ui-footer-usage": "• Free for medical education and clinical research without commercial use."
+                "ui-footer-usage": "• Free for medical education and clinical research without commercial use.",
+                "lbl-antiperistaltic": "Spasmolytic / Antiperistaltic Agent:",
+                "opt-ap-buscopan": "Hyoscine butylbromide (Buscopan)",
+                "opt-ap-glucagon": "Glucagon",
+                "opt-ap-none": "None administered",
+                "opt-ap-contra": "Contraindicated",
+                "lbl-seq-other": "Other sequences",
+                "seq-other-placeholder": "Specify other sequences (e.g., MR elastography, high-res coronal T2...)"
         }
 };
 
@@ -1521,16 +1648,17 @@
                 }
             }
 
-            // Update free notes placeholder
+            // Update placeholders
             const fn = document.getElementById("free-notes");
             if (fn && t["free-notes-placeholder"]) {
                 fn.placeholder = t["free-notes-placeholder"];
             }
+            const seqOtherInp = document.getElementById("seq-other-text");
+            if (seqOtherInp && t["seq-other-placeholder"]) {
+                seqOtherInp.placeholder = t["seq-other-placeholder"];
+            }
 
-            // Update theme button text according to active language and current theme
             updateThemeButtonText();
-
-            // Re-render report and scores in selected language
             updateReport();
         }
 
@@ -1615,6 +1743,19 @@
             const row = document.getElementById("row-hba-excretion");
             if (row) {
                 row.style.display = checked ? "flex" : "none";
+            }
+            updateReport();
+        }
+
+        function onSeqOtherChange() {
+            const checked = document.getElementById("seq-other")?.checked;
+            const box = document.getElementById("box-seq-other");
+            if (box) {
+                box.style.display = checked ? "block" : "none";
+                if (checked) {
+                    const inp = document.getElementById("seq-other-text");
+                    if (inp) inp.focus();
+                }
             }
             updateReport();
         }
@@ -1731,7 +1872,22 @@
             const field = document.querySelector('input[name="field-strength"]:checked')?.value || "1.5T";
             const fasting = document.querySelector('input[name="fasting"]:checked')?.value === "yes";
             const txtFasting = lang === "en" ? (fasting ? "Yes (≥ 4h)" : "No") : (fasting ? "Sí (≥ 4h)" : "No");
-            lines.push(" - " + (lang === "en" ? "Magnetic field: " : (lang === "ca" ? "Camp magnètic: " : "Campo magnético: ")) + field + " | " + (lang === "en" ? "Prior fasting: " : (lang === "ca" ? "Dejuni previ: " : "Ayuno previo: ")) + txtFasting);
+
+            // Antiperistaltic
+            const apVal = document.querySelector('input[name="antiperistaltic"]:checked')?.value || "buscopan";
+            let txtAp = "";
+            if (apVal === "buscopan") {
+                txtAp = lang === "en" ? "Hyoscine butylbromide (Buscopan)" : (lang === "ca" ? "Butilescopolamina (Buscapina)" : "Butilescopolamina (Buscapina)");
+            } else if (apVal === "glucagon") {
+                txtAp = lang === "en" ? "Glucagon" : (lang === "ca" ? "Glucagó" : "Glucagón");
+            } else if (apVal === "contraindicated") {
+                txtAp = lang === "en" ? "Contraindicated" : (lang === "ca" ? "Contraindicat" : "Contraindicado");
+            } else {
+                txtAp = lang === "en" ? "None administered" : (lang === "ca" ? "No administrat" : "No administrado");
+            }
+            const lblAp = lang === "en" ? "Spasmolytic agent: " : (lang === "ca" ? "Agent antiperistàltic: " : "Antiperistáltico: ");
+
+            lines.push(" - " + (lang === "en" ? "Magnetic field: " : (lang === "ca" ? "Camp magnètic: " : "Campo magnético: ")) + field + " | " + (lang === "en" ? "Prior fasting: " : (lang === "ca" ? "Dejuni previ: " : "Ayuno previo: ")) + txtFasting + " | " + lblAp + txtAp);
 
             let seqs = [];
             if (document.getElementById("seq-t2")?.checked) seqs.push(lang === "en" ? "T2WI non-FS (axial/coronal)" : "T2WI no-FS (axial/coronal)");
@@ -1740,6 +1896,14 @@
             if (document.getElementById("seq-dwi")?.checked) seqs.push(lang === "en" ? "DWI (low & high b-values)" : (lang === "ca" ? "DWI (b-baix i b-alt)" : "DWI (b-bajo y b-alto)"));
             if (document.getElementById("seq-dyn")?.checked) seqs.push(lang === "en" ? "Dynamic T1 with IV contrast" : (lang === "ca" ? "T1 dinàmic amb contrast IV" : "T1 dinámico con cte"));
             if (document.getElementById("seq-hba")?.checked) seqs.push(lang === "en" ? "HBA hepatobiliary phase (gadoxetic acid)" : (lang === "ca" ? "Fase Hepatobiliar HBA (gadoxètic)" : "Fase Hepatobiliar HBA (gadoxético)"));
+            if (document.getElementById("seq-other")?.checked) {
+                const customSeq = document.getElementById("seq-other-text")?.value.trim();
+                if (customSeq) {
+                    seqs.push(customSeq);
+                } else {
+                    seqs.push(lang === "en" ? "Other additional sequences" : (lang === "ca" ? "Altres seqüències addicionals" : "Otras secuencias adicionales"));
+                }
+            }
             lines.push(" - " + (lang === "en" ? "Acquired sequences: " : (lang === "ca" ? "Seqüències adquirides: " : "Secuencias adquiridas: ")) + seqs.join(", ") + "\n");
 
             // 1. Vía biliar
@@ -1981,6 +2145,8 @@
             if (form) form.reset();
             const notes = document.getElementById("free-notes");
             if (notes) notes.value = "";
+            const seqOthInp = document.getElementById("seq-other-text");
+            if (seqOthInp) seqOthInp.value = "";
             onStricturesChange();
             onDilationsChange();
             onGbPresenceChange();
@@ -1988,13 +2154,102 @@
             onFocalLesionChange();
             onMpdChange();
             onHbaSeqChange();
+            onSeqOtherChange();
             onSpleenSizeChange();
             updateReport();
         }
 
+        // Draggable Splitter
+        function initSplitter() {
+            const divider = document.getElementById("layout-divider");
+            const formCol = document.getElementById("form-column");
+            const container = document.getElementById("layout-container");
+            if (!divider || !formCol || !container) return;
+
+            let isDragging = false;
+
+            try {
+                const savedWidth = localStorage.getItem("esgar_psc_form_width");
+                if (savedWidth) {
+                    const w = parseFloat(savedWidth);
+                    if (w >= 25 && w <= 80) {
+                        formCol.style.width = w + "%";
+                    }
+                }
+            } catch (e) {}
+
+            divider.addEventListener("mousedown", function(e) {
+                isDragging = true;
+                divider.classList.add("dragging");
+                document.body.style.cursor = "col-resize";
+                document.body.style.userSelect = "none";
+                e.preventDefault();
+            });
+
+            document.addEventListener("mousemove", function(e) {
+                if (!isDragging) return;
+                const containerRect = container.getBoundingClientRect();
+                const totalWidth = containerRect.width;
+                const newLeftWidth = e.clientX - containerRect.left;
+                let percentage = (newLeftWidth / totalWidth) * 100;
+
+                if (percentage < 25) percentage = 25;
+                if (percentage > 80) percentage = 80;
+
+                formCol.style.width = percentage + "%";
+            });
+
+            document.addEventListener("mouseup", function() {
+                if (isDragging) {
+                    isDragging = false;
+                    divider.classList.remove("dragging");
+                    document.body.style.cursor = "";
+                    document.body.style.userSelect = "";
+                    try {
+                        const widthPercent = parseFloat(formCol.style.width);
+                        if (!isNaN(widthPercent)) {
+                            localStorage.setItem("esgar_psc_form_width", widthPercent);
+                        }
+                    } catch (e) {}
+                }
+            });
+
+            divider.addEventListener("touchstart", function(e) {
+                isDragging = true;
+                divider.classList.add("dragging");
+            }, { passive: true });
+
+            document.addEventListener("touchmove", function(e) {
+                if (!isDragging || !e.touches[0]) return;
+                const touch = e.touches[0];
+                const containerRect = container.getBoundingClientRect();
+                const totalWidth = containerRect.width;
+                const newLeftWidth = touch.clientX - containerRect.left;
+                let percentage = (newLeftWidth / totalWidth) * 100;
+
+                if (percentage < 25) percentage = 25;
+                if (percentage > 80) percentage = 80;
+
+                formCol.style.width = percentage + "%";
+            }, { passive: true });
+
+            document.addEventListener("touchend", function() {
+                if (isDragging) {
+                    isDragging = false;
+                    divider.classList.remove("dragging");
+                    try {
+                        const widthPercent = parseFloat(formCol.style.width);
+                        if (!isNaN(widthPercent)) {
+                            localStorage.setItem("esgar_psc_form_width", widthPercent);
+                        }
+                    } catch (e) {}
+                }
+            });
+        }
+
         // Initialize App
         document.addEventListener("DOMContentLoaded", function() {
-            // Restore theme from localStorage
+            // Restore theme
             try {
                 const savedTheme = localStorage.getItem("esgar_psc_theme");
                 if (savedTheme === "dark" || savedTheme === "light") {
@@ -2003,7 +2258,7 @@
                 }
             } catch (e) {}
 
-            // Restore language from localStorage
+            // Restore language
             try {
                 const savedLang = localStorage.getItem("esgar_psc_lang");
                 if (savedLang && translations[savedLang]) {
@@ -2015,11 +2270,11 @@
                 }
             } catch (e) {}
 
+            initSplitter();
             updateThemeButtonText();
             updateReport();
         });
 
-        // Backup for window.onload
         window.onload = function() {
             updateThemeButtonText();
             updateReport();

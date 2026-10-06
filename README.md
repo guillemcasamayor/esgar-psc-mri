@@ -34,11 +34,16 @@ Este software y módulo de informe estructurado se distribuye bajo la licencia:
 3. **Soporte Trilingüe Completo:**
    * **Español (`es`)**, **Català (`ca`)** e **Inglés (`en`)**.
    * Traducción en tiempo real tanto de la interfaz gráfica como del informe generado.
-4. **Diseño Visual de Alta Fidelidad (Aesthetics):**
+4. **Diseño Visual de Alta Fidelidad y Ergonomía:**
    * Tipografía moderna **Ubuntu** (Google Fonts).
    * Modo Claro y Modo Oscuro conmutables al instante.
-   * Distribución en dos columnas: panel de entrada de datos clínicos a la izquierda y visor WYSIWYG a la derecha.
-5. **Calculadora Pronóstica Integrada (Score ANALI):**
+   * **Cabecera compacta de perfil bajo (44px):** Todo en una sola línea (Título, Referencia de consenso, Autoría y Licencia CC).
+   * **Panel Split-View Redimensionable:** Divisor interactivo arrastrable para regular el ancho de la lista de verificación y del informe preview al gusto del usuario, con persistencia en `localStorage`.
+5. **Protocolo Técnico Optimizado (Consenso ESGAR):**
+   * Registro de campo (1.5T / 3.0T) y ayuno (≥ 4h).
+   * **Agente antiperistáltico / espasmolítico:** Butilescopolamina (Buscapina), Glucagón, No administrado o Contraindicado.
+   * Secuencias estándar ESGAR (T2WI, T1WI Dixon, Colangio-RM, DWI, T1 dinámico, Fase HBA) más opción de **Otras secuencias** con campo de texto libre editable.
+6. **Calculadora Pronóstica Integrada (Score ANALI):**
    * Cálculo reactivo automático del **ANALI Score sin Gadolinio** (0–3 puntos) y **ANALI Score con Gadolinio** (0–5 puntos) en base a los hallazgos seleccionados (dilatación intrahepática, dismorfia, signos de HTP y heterogeneidad de captación).
    * Incorporación de las recomendaciones de prudencia clínica acordadas por la ESGAR.
 6. **Alertas de Estenosis Dominante y Cribado Neoplásico:**
