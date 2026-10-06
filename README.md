@@ -1,5 +1,10 @@
 # ESGAR 2025 PSC MR Reporting Module (Colangitis Esclerosante Primaria)
 
+[![Online Demo](https://img.shields.io/badge/Demo-Online%20App-0284c7?style=flat-square&logo=github)](https://guillemcasamayor.github.io/esgar-psc-mri/)
+[![License: CC BY-NC-SA 4.0](https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-blue.svg?style=flat-square)](https://creativecommons.org/licenses/by-nc-sa/4.0/)
+
+> 🌐 **Acceso directo online:** **[https://guillemcasamayor.github.io/esgar-psc-mri/](https://guillemcasamayor.github.io/esgar-psc-mri/)**
+
 Módulo interactivo de informe radiológico estructurado para **Resonancia Magnética y Colangio-RM en pacientes con Colangitis Esclerosante Primaria (CEP / PSC)**, desarrollado en base al consenso oficial de la **European Society of Gastrointestinal and Abdominal Radiology (ESGAR)**:
 
 > **Referencia oficial:**  
